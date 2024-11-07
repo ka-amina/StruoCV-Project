@@ -7,7 +7,11 @@ module.exports = {
         primary: "#EC505D",
         secondary: "#F6EFED",
         brown: "#CA6D18",
-        gray: "#797979",
+        "nu-gray":{ 
+          50:"#83A4B6",
+          100:"#797979",
+
+        },
         "nu-blue": {
           50: "#F9F9F9",
           100: "#E4F6FB",
