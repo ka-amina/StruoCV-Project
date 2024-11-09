@@ -32,12 +32,12 @@
     </header>
 
     <div
-      class="block md:grid md:justify-center relative p-4 bg-secondary h-auto "
+      class="block md:grid md:justify-center relative p-4 bg-secondary "
     >
       <!-- personal informations -->
       <div
         id="personal-informations"
-        class="h-auto bg-white rounded-lg px-3 w-full"
+        class="h-auto bg-white rounded-lg px-3 w-full border border-nu-gray-100"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -144,7 +144,7 @@
                   />
                   <button
                     id="addNewSocialMedia"
-                    class="p-2 bg-input opacity-secondary ml-4 text-3xl rounded-lg font-semibold"
+                    class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
                   >
                     <span class="text-black">+</span>
                   </button>
@@ -165,8 +165,8 @@
 
       <!-- work experience -->
       <div
-        id="personal-informations"
-        class="h-auto bg-white rounded-lg px-3 mt-7 absolute top-0 md:-top-3 md:right-96 hidden"
+        id="work-experience"
+        class="h-auto bg-white rounded-lg px-3 mt-7 absolute top-0 md:-top-3 md:right-96 hidden border border-nu-gray-100"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -297,8 +297,8 @@
       </div>
       <!-- education -->
       <div
-        id="personal-informations"
-        class="h-auto bg-white rounded-lg px-3 mt-7 absolute top-0 md:-top-3 md:right-96  hidden"
+        id="education"
+        class="h-auto bg-white rounded-lg px-3 mt-7 absolute top-0 md:-top-3 md:right-96  hidden border border-nu-gray-100"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -438,8 +438,8 @@
       <!-- certification -->
 
       <div
-        id="personal-informations"
-        class="h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 left-2  md:left-96 hidden"
+        id="certifications"
+        class="h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 left-2  md:left-96 hidden border border-nu-gray-100"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -517,7 +517,7 @@
               />
               <button
                 id="AddNewCertification"
-                class="p-2 bg-input opacity-secondary ml-4 text-3xl rounded-lg font-semibold"
+                class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
               >
                 <span class="text-black">+</span>
               </button>
@@ -525,7 +525,7 @@
           </div>
           <div class="flex justify-around">
             <button
-              id="backToWorkEducation"
+              id="backToEducation"
               class="px-9 my-4 bg-secondary p-2 rounded-lg"
             >
               Previous
@@ -542,8 +542,8 @@
 
       <!-- skills -->
       <div
-        id="personal-informations"
-        class="h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-96 hidden"
+        id="skills"
+        class="h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-96 hidden border border-nu-gray-100"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -574,7 +574,7 @@
               />
               <button
                 id="AddNewSoftSkill"
-                class="p-2 bg-input opacity-secondary ml-4 text-3xl rounded-lg font-semibold"
+                class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
               >
                 <span class="text-black">+</span>
               </button>
@@ -588,7 +588,7 @@
               />
               <button
                 id="AddNewHardSkill"
-                class="p-2 bg-input opacity-secondary ml-4 text-3xl rounded-lg font-semibold"
+                class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
               >
                 <span class="text-black">+</span>
               </button>
@@ -610,6 +610,9 @@
           </div>
         </form>
       </div>
+      <div id="toast-box" class="absolute top-8 right-8 flex justify-end flex-col overflow-hidden  items-center"></div>
     </div>
+    
+    <script src="./apps.js"></script>
   </body>
 </html>
