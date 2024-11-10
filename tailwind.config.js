@@ -25,6 +25,7 @@ module.exports = {
       },
       width: {
         input: "35rem",
+        form: "42.5rem",
       },
     },
   },
