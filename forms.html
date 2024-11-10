@@ -49,20 +49,49 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              <div class="p-2 border border-primary rounded-full"><img src="./icons/personalinformations.svg" alt="" width="30" height="30"></div>
-              
-              <div class="h-2.5 bg-gray-400 rounded-full w-12 " ></div>
-              <img src="./icons/Workexperience.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/education.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/certification.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/languag.svg" alt="" width="40" height="40" class="mb-2">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/skills.svg" alt="" width="40" height="40" class="mb-2">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/succes.svg" alt="" width="30" height="30">
+              <div class="p-2 border border-primary rounded-full">
+                <img
+                  src="./icons/personalinformations.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
+
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/Workexperience.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img src="./icons/education.svg" alt="" width="30" height="30" />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/certification.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/languag.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/skills.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img src="./icons/succes.svg" alt="" width="30" height="30" />
             </div>
           </div>
           <div class="block md:flex md:mr-5 md:justify-around">
@@ -71,13 +100,13 @@
               <img src="" alt="" id="showImg" class="w-40 h-40 hidden mb-6" />
               <input
                 type="file"
-                id="myFile"
+                id="profileImg"
                 accept=".jpg, .png, .jpeg"
                 onchange="displayImg(event)"
                 class="hidden"
               />
               <label
-                for="myFile"
+                for="profileImg"
                 class="cursor-pointer bg-primary text-white py-1 px-2 rounded"
               >
                 Select Image
@@ -104,20 +133,29 @@
               <div class="mt-4">
                 <label for="email">Phone No.</label>
                 <div class="flex">
+                  <select
+                    id="phone-code"
+                    class="bg-secondary border border-none text-gray-900 mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-20 p-2.5"
+                  >
+                    <option></option>
+                    <option>+1</option>
+                    <option>+34</option>
+                    <option>+49</option>
+                    <option>+90</option>
+                    <option>+212</option>
+                    <option>+213</option>
+                    <option>other</option>
+                  </select>
+
                   <input
-                    type="Number"
+                    type="text"
                     id="user-Phone"
-                    class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-14 p-2.5"
-                  />
-                  <input
-                    type="Number"
-                    id="user-Phone"
-                    class="ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
+                    class="ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-60 p-2.5 md:h-10"
                   />
                 </div>
               </div>
               <!-- job -->
-              <div class="mt-4">
+              <div>
                 <label for="jobTitle">Your Job</label>
                 <input
                   type="text"
@@ -201,20 +239,48 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              
-              <img src="./icons/personalStep.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-primary rounded-full w-12 " ></div>
-              <div class="p-2 border border-primary rounded-full"><img src="./icons/Workexperience.svg" alt="" width="30" height="30"></div>
-              <div class="h-2.5 bg-gray-400  rounded-full w-12" ></div>
-              <img src="./icons/education.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-gray-400  rounded-full w-12" ></div>
-              <img src="./icons/certification.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/languag.svg" alt="" width="40" height="40" class="mb-2">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/skills.svg" alt="" width="40" height="40" class="mb-2">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/succes.svg" alt="" width="30" height="30">
+              <img
+                src="./icons/personalStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <div class="p-2 border border-primary rounded-full">
+                <img
+                  src="./icons/Workexperience.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img src="./icons/education.svg" alt="" width="30" height="30" />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/certification.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/languag.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/skills.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img src="./icons/succes.svg" alt="" width="30" height="30" />
             </div>
           </div>
           <div id="addWork">
@@ -245,14 +311,23 @@
                 <div
                   class="flex md:justify-normal justify-between md:h-10 md:gap-6"
                 >
+                <select id="job-month-from" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
+                  <option  > month</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
                   <input
                     type="text"
-                    id="job-month-from"
-                    class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                    placeholder="month"
-                  />
-                  <input
-                    type="Number"
                     id="job-year-from"
                     class="ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                     placeholder="year"
@@ -262,12 +337,21 @@
                 <span class="mt-2 hidden md:block">-</span>
                 <div>
                   <div class="flex justify-between md:justify-normal md:gap-6">
-                    <input
-                      type="text"
-                      id="job-month-to"
-                      class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                      placeholder="month"
-                    />
+                    <select id="job-month-to" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
+                      <option  > month</option>
+                      <option>January</option>
+                      <option>February</option>
+                      <option>March</option>
+                      <option>April</option>
+                      <option>May</option>
+                      <option>June</option>
+                      <option>July</option>
+                      <option>August</option>
+                      <option>September</option>
+                      <option>October</option>
+                      <option>November</option>
+                      <option>December</option>
+                    </select>
                     <input
                       type="Number"
                       id="job-year-to"
@@ -275,16 +359,41 @@
                       placeholder="year"
                     />
                   </div>
-                  <div class="flex items-center mb-4 mt-3">
-                    <input
-                      id="check-currently-work"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 border-2 rounded-3xl border-primary"
-                    />
-                    <label for="checkbox" class="ms-2 text-sm font-medium"
-                      >I currently work here</label
+                  <div class="inline-flex items-center ml-3.5 mt-3">
+                    <label
+                      class="flex items-center cursor-pointer relative"
+                      for="check-currently-work"
                     >
+                      <input
+                        type="checkbox"
+                        class="peer h-5 w-5 cursor-pointer appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-primary checked:border-nu-gray-100"
+                        id="check-currently-work"
+                      />
+                      <span
+                        class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-3.5 w-3.5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          stroke="currentColor"
+                          stroke-width="1"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                    </label>
+                    <label
+                      class="cursor-pointer ml-3 text-slate-600 text-sm font-medium"
+                      for="check-currently-work"
+                    >
+                      I currently work here
+                    </label>
                   </div>
                 </div>
               </div>
@@ -345,20 +454,48 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              
-              <img src="./icons/personalStep.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-primary rounded-full w-12 " ></div>
-              <img src="./icons/work-step.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-              <div class="p-2 border border-primary rounded-full"><img src="./icons/education.svg" alt="" width="30" height="30"></div>
-              <div class="h-2.5 bg-gray-400  rounded-full w-12" ></div>
-              <img src="./icons/certification.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/languag.svg" alt="" width="40" height="40" class="mb-2">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/skills.svg" alt="" width="40" height="40" class="mb-2">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/succes.svg" alt="" width="30" height="30">
+              <img
+                src="./icons/personalStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <div class="p-2 border border-primary rounded-full">
+                <img
+                  src="./icons/education.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/certification.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/languag.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/skills.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img src="./icons/succes.svg" alt="" width="30" height="30" />
             </div>
           </div>
           <div id="addEducation">
@@ -396,12 +533,21 @@
                 <div
                   class="flex md:justify-normal justify-between md:h-10 md:gap-6"
                 >
-                  <input
-                    type="text"
-                    id="education-month-from"
-                    class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                    placeholder="month"
-                  />
+                <select id="education-month-from" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
+                  <option  > month</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
                   <input
                     type="Number"
                     id="education-year-from"
@@ -413,12 +559,21 @@
                 <span class="mt-2 hidden md:block md:px-2">-</span>
                 <div>
                   <div class="flex justify-between md:justify-normal md:gap-6">
-                    <input
-                      type="text"
-                      id="education-month-to"
-                      class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                      placeholder="month"
-                    />
+                    <select id="education-month-to" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
+                      <option  > month</option>
+                      <option>January</option>
+                      <option>February</option>
+                      <option>March</option>
+                      <option>April</option>
+                      <option>May</option>
+                      <option>June</option>
+                      <option>July</option>
+                      <option>August</option>
+                      <option>September</option>
+                      <option>October</option>
+                      <option>November</option>
+                      <option>December</option>
+                    </select>
                     <input
                       type="Number"
                       id="education-year-to"
@@ -426,16 +581,41 @@
                       placeholder="year"
                     />
                   </div>
-                  <div class="flex items-center mb-4 mt-3">
-                    <input
-                      id="check-currently-study"
-                      type="checkbox"
-                      value=""
-                      class="w-4 h-4 text-primary bg-primary border-primary rounded checked:bg-primary checked:border-primary"
-                    />
-                    <label for="checkbox" class="ms-2 text-sm font-medium"
-                      >I currently study here</label
+                  <div class="inline-flex items-center ml-3.5 mt-3">
+                    <label
+                      class="flex items-center cursor-pointer relative"
+                      for="check-currently-study"
                     >
+                      <input
+                        type="checkbox"
+                        class="peer h-5 w-5 cursor-pointer appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-primary checked:border-nu-gray-100"
+                        id="check-currently-study"
+                      />
+                      <span
+                        class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-3.5 w-3.5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          stroke="currentColor"
+                          stroke-width="1"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                    </label>
+                    <label
+                      class="cursor-pointer ml-3 text-slate-600 text-sm font-medium"
+                      for="check-currently-study"
+                    >
+                      I currently study here
+                    </label>
                   </div>
                 </div>
               </div>
@@ -499,20 +679,53 @@
           <div class="block md:flex justify-center mt-7">
             <div class="block md:flex justify-center mt-7">
               <div class="flex items-center">
-                
-                <img src="./icons/personalStep.svg" alt="" width="30" height="30">
-                <div class="h-2.5 bg-primary rounded-full w-12 " ></div>
-                <img src="./icons/work-step.svg" alt="" width="30" height="30">
-                <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-                <img src="./icons/educationStep.svg" alt="" width="30" height="30">
-                <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-                <div class="p-2 border border-primary rounded-full"><img src="./icons/certification.svg" alt="" width="30" height="30"></div>
-                <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-                <img src="./icons/languag.svg" alt="" width="40" height="40" class="mb-2">
-                <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-                <img src="./icons/skills.svg" alt="" width="40" height="40" class="mb-2">
-                <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-                <img src="./icons/succes.svg" alt="" width="30" height="30">
+                <img
+                  src="./icons/personalStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                <div class="h-2.5 bg-primary rounded-full w-12"></div>
+                <img
+                  src="./icons/work-step.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                <div class="h-2.5 bg-primary rounded-full w-12"></div>
+                <img
+                  src="./icons/educationStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+                <div class="h-2.5 bg-primary rounded-full w-12"></div>
+                <div class="p-2 border border-primary rounded-full">
+                  <img
+                    src="./icons/certification.svg"
+                    alt=""
+                    width="30"
+                    height="30"
+                  />
+                </div>
+                <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+                <img
+                  src="./icons/languag.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                  class="mb-2"
+                />
+                <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+                <img
+                  src="./icons/skills.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                  class="mb-2"
+                />
+                <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+                <img src="./icons/succes.svg" alt="" width="30" height="30" />
               </div>
             </div>
           </div>
@@ -600,39 +813,61 @@
       </div>
       <!-- language -->
       <div
-      id="language"
-      class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-80 border border-nu-gray-100 md:w-form"
-    >
-      <form action="">
-        <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
-          <img
-            src="./icons/languag.svg"
-            alt="personalinfo"
-            width="30"
-            height="30"
-          />
-          <span>Languages</span>
-        </div>
-        <div class="block md:flex justify-center mt-7">
-          <div class="flex items-center">
-              
-            <img src="./icons/personalStep.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12 " ></div>
-            <img src="./icons/work-step.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <img src="./icons/educationStep.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <img src="./icons/certificationStep.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <div class="p-2 border border-primary rounded-full py-3"><img src="./icons/languag.svg" alt="" width="30" height="30"></div>
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/skills.svg" alt="" width="40" height="40" class="mb-2">
-              <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-              <img src="./icons/succes.svg" alt="" width="30" height="30">
+        id="language"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-80 border border-nu-gray-100 md:w-form"
+      >
+        <form action="">
+          <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
+            <img
+              src="./icons/languag.svg"
+              alt="personalinfo"
+              width="30"
+              height="30"
+            />
+            <span>Languages</span>
           </div>
-        </div>
+          <div class="block md:flex justify-center mt-7">
+            <div class="flex items-center">
+              <img
+                src="./icons/personalStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/educationStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/certificationStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <div class="p-2 border border-primary rounded-full py-3">
+                <img src="./icons/languag.svg" alt="" width="30" height="30" />
+              </div>
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img
+                src="./icons/skills.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img src="./icons/succes.svg" alt="" width="30" height="30" />
+            </div>
+          </div>
 
-        <div class="md:grid md:justify-center md:mt-6">
+          <div class="md:grid md:justify-center md:mt-6">
             <label class="block mb-2 text-sm font-medium text-gray-900"
               >Select language</label
             >
@@ -650,42 +885,42 @@
             <label class="block mb-2 text-sm font-medium text-gray-900"
               >Level</label
             >
-            <div class="flex md:h-10">
-            
-            <select
-              id="add-level"
-              class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
-            >
-              <option selected>Choose</option>
-              <option>Pre Intermediate</option>
-              <option>Intermediate</option>
-              <option>Proficiency</option>
-            </select>
-            <button
-                id="AddNewHardSkill"
+            <div id="AddLanguage">
+            <div class="flex md:h-10" >
+              <select
+                id="add-level"
+                class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
+              >
+                <option selected>Choose</option>
+                <option>Pre Intermediate</option>
+                <option>Intermediate</option>
+                <option>Proficiency</option>
+              </select>
+              <button
+                id="AddNewLanguage"
                 class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
               >
                 <span class="text-black">+</span>
               </button>
+            </div>
           </div>
-          
-        </div>
-        <div class="flex justify-around">
-          <button
-            id="BackToCertifications"
-            class="px-9 my-4 bg-secondary p-2 rounded-lg"
-          >
-            Previous
-          </button>
-          <button
-            id="NavigateToSkills"
-            class="px-9 my-4 bg-primary p-2 rounded-lg text-white"
-          >
-            Next
-          </button>
-        </div>
-      </form>
-    </div>
+          </div>
+          <div class="flex justify-around">
+            <button
+              id="BackToCertifications"
+              class="px-9 my-4 bg-secondary p-2 rounded-lg"
+            >
+              Previous
+            </button>
+            <button
+              id="NavigateToSkills"
+              class="px-9 my-4 bg-primary p-2 rounded-lg text-white"
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </div>
       <!-- skills -->
       <div
         id="skills"
@@ -703,20 +938,47 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              
-              <img src="./icons/personalStep.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-primary rounded-full w-12 " ></div>
-              <img src="./icons/work-step.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-              <img src="./icons/educationStep.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-              <img src="./icons/certificationStep.svg" alt="" width="30" height="30">
-              <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-                <img src="./icons/languageStep.svg" alt="" width="40" height="40" >
-                <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-                <div class="p-2 border border-primary rounded-full "><img src="./icons/skills.svg" alt="" width="35" height="35" class="mb-2"></div>
-                <div class="h-2.5 bg-gray-400 rounded-full w-12" ></div>
-                <img src="./icons/succes.svg" alt="" width="30" height="30">
+              <img
+                src="./icons/personalStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/educationStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/certificationStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/languageStep.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <div class="p-2 border border-primary rounded-full">
+                <img
+                  src="./icons/skills.svg"
+                  alt=""
+                  width="35"
+                  height="35"
+                  class="mb-2"
+                />
+              </div>
+              <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
+              <img src="./icons/succes.svg" alt="" width="30" height="30" />
             </div>
           </div>
 
@@ -738,7 +1000,7 @@
               </div>
             </div>
             <div id="AddhardSkill">
-              <label for="hard skills">hard skills</label>
+              <label for="hard-skills">hard skills</label>
               <div class="flex md:h-10">
                 <input
                   type="text"
@@ -772,50 +1034,75 @@
       </div>
       <!-- finish -->
       <div
-      id="Download"
-      class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-80 border border-nu-gray-100 md:w-form"
-    >
-      <form action="">
-        <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
-          <img
-            src="./icons/Download.svg"
-            alt="personalinfo"
-            width="30"
-            height="30"
-          />
-          <span>Download</span>
-        </div>
-        <div class="block md:flex justify-center mt-7">
-          <div class="flex items-center">
-            
-            <img src="./icons/personalStep.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12 " ></div>
-            <img src="./icons/work-step.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <img src="./icons/educationStep.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <img src="./icons/certificationStep.svg" alt="" width="30" height="30">
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <img src="./icons/languageStep.svg" alt="" width="40" height="40" >
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <img src="./icons/skillStep.svg" alt="" width="35" height="35" class="mb-2">
-            <div class="h-2.5 bg-primary rounded-full w-12" ></div>
-            <div class="p-2 border border-primary rounded-full "><img src="./icons/succes.svg" alt="" width="30" height="30"></div>
-            
+        id="Download"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-80 border border-nu-gray-100 md:w-form"
+      >
+        <form action="">
+          <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
+            <img
+              src="./icons/Download.svg"
+              alt="personalinfo"
+              width="30"
+              height="30"
+            />
+            <span>Download</span>
           </div>
-        </div>
+          <div class="block md:flex justify-center mt-7">
+            <div class="flex items-center">
+              <img
+                src="./icons/personalStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/educationStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/certificationStep.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/languageStep.svg"
+                alt=""
+                width="40"
+                height="40"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/skillStep.svg"
+                alt=""
+                width="40"
+                height="40"
+                class="mb-2"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <div class="p-2 border border-primary rounded-full">
+                <img src="./icons/succes.svg" alt="" width="30" height="30" />
+              </div>
+            </div>
+          </div>
 
-        
-        <div class="flex justify-around">
-          <button
-            id="download-button"
-            class="px-9 my-4 bg-primary p-2 rounded-lg text-white"
-          >
-            Download
-          </button>
-        </div>
-      </form>
-    </div>
+          <div class="flex justify-around">
+            <button
+              id="download-button"
+              class="px-9 my-4 bg-primary p-2 rounded-lg text-white"
+            >
+              Download
+            </button>
+          </div>
+        </form>
+      </div>
       <div
         id="toast-box"
         class="absolute top-8 right-8 flex justify-end flex-col overflow-hidden items-center"
