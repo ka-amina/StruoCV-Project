@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#EC505D",
-        secondary: "#F6EFED",
+        primary: "#2B90ED",
+        secondary: "#F0F0F0 ",
         brown: "#CA6D18",
         "nu-gray": {
           50: "#83A4B6",
@@ -19,6 +19,7 @@ module.exports = {
           400: "#0000FF",
         },
         input: "#F3DCDC",
+        "success":"#28A745",
       },
       opacity: {
         secondary: "0.38",

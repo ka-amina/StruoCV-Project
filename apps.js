@@ -52,7 +52,10 @@ var email = document.getElementById("user-email");
 var phoneCode = document.getElementById("phone-code");
 var phoneNumber = document.getElementById("user-Phone");
 var jobTitle = document.getElementById("Job-title");
-var about = document.getElementById("about-message");
+const about = new Quill('#about-message', {
+  theme: 'snow',
+  placeholder: 'Write about you...',
+})
 var addMediaInput = document.getElementById("add-media");
 var mediaUrl = document.getElementById("media-url");
 // work experience inputs
@@ -63,7 +66,10 @@ var jobYearFrom = document.getElementById("job-year-from");
 var jobMonthTo = document.getElementById("job-month-to");
 var jobYearTo = document.getElementById("job-year-to");
 var currentlyWork = document.getElementById("check-currently-work");
-var workDescription = document.getElementById("job-description");
+var workDescription = new Quill('#job-description', {
+  theme: 'snow',
+  placeholder: 'Write about your position...',
+})
 // education inputs
 var institutName = document.getElementById("Institution-name");
 var field = document.getElementById("field-of-study");
@@ -73,7 +79,10 @@ var educationYearFrom = document.getElementById("education-year-from");
 var educationMonthTo = document.getElementById("education-month-to");
 var educationYearTo = document.getElementById("education-year-to");
 var currentlyStudy = document.getElementById("check-currently-study");
-var studyDescription = document.getElementById("study-description");
+var studyDescription = new Quill('#study-description', {
+  theme: 'snow',
+  placeholder: 'Write about your career...',
+});
 // certifications inputs
 var certificatName = document.getElementById("certificat-name");
 var certificatMonthFrom = document.getElementById("certificat-month-from");
@@ -154,7 +163,8 @@ function showToast() {
     "p-3",
     "flex",
     "items-center",
-    "justify-center"
+    "justify-center",
+    "bg-white"
   );
   toast.innerHTML = `<img
               src="./icons/toast.svg"
@@ -233,14 +243,15 @@ confirmInformations.addEventListener("click", (e) => {
 addNewSocialMedia.addEventListener("click", (e) => {
   e.preventDefault();
   const addsocialinput = document.createElement("div");
-  //  addsocialinput.classList.add('mt-8');
+   addsocialinput.classList.add('mt-8', 'social-media');
+   const socialMediaIndex = document.querySelectorAll('.social-media').length+1;
   addsocialinput.innerHTML = ` 
-                <div class="mt-3">
+                <div class="mt-3" data-index="${socialMediaIndex}">
                   <label class="block mb-2 text-sm font-medium text-gray-900"
                     >Name</label
                   >
                   <select
-                    id="add-media"
+                    id="social-media-name-${socialMediaIndex}"
                     class="bg-secondary border border-none text-gray-900 mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                   >
                     <option selected>Choose</option>
@@ -253,7 +264,7 @@ addNewSocialMedia.addEventListener("click", (e) => {
                 <div class="flex ">
                   <input
                     type="text"
-                    id="media-url"
+                    id="social-media-url-${socialMediaIndex}"
                     class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 w-full"
                   />`;
   AddMedia.appendChild(addsocialinput);
@@ -599,10 +610,26 @@ function storepersonalInfo() {
     email: email.value,
     phoneCode: phoneCode.value,
     jobTitle: jobTitle.value,
-    about: about.value,
-    addMediaInput: addMediaInput.value,
-    mediaUrl: mediaUrl.value,
+    about: about.getText(),
+    addMediaInput:  addMediaInput ? addMediaInput.value : '',
+    mediaUrl: mediaUrl ? mediaUrl.value : '',
+    socialMedia: [],
   };
+
+  const socialMediaFields = document.querySelectorAll('.social-media')
+  socialMediaFields.forEach((field)=>{
+    const mediaSelect = field.querySelector('select');
+    const mediaInput = field.querySelector('input');
+    if (mediaSelect && mediaInput){
+      const mediaName= mediaSelect.value
+      const mediaUrl = mediaInput.value;
+      personalInfo.socialMedia.push({
+        addMediaInput: mediaName,
+        mediaUrl: mediaUrl,
+      });
+    }
+  })
+  
   userData.personalInfos.push(personalInfo);
   console.log(userData.personalInfos);
 }
@@ -616,7 +643,7 @@ function storeWorkExperience() {
     jobMonthTo: jobMonthTo.value,
     jobYearTo: jobYearTo.value,
     currentlyWork: currentlyWork.value,
-    workDescription: workDescription.value,
+    workDescription: workDescription.getText(),
   };
   userData.Work.push(workExp);
   console.log(userData.Work);
@@ -632,7 +659,7 @@ function storeEducation() {
     educationMonthTo: educationMonthTo.value,
     educationYearTo: educationYearTo.value,
     currentlyStudy: currentlyStudy.value,
-    studyDescription: studyDescription.value,
+    studyDescription: studyDescription.getText(),
   };
   userData.school.push(school);
   console.log(userData.school);

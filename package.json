@@ -2,6 +2,7 @@
   "name": "testtailwind",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
@@ -11,5 +12,8 @@
   "description": "",
   "devDependencies": {
     "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "quill": "^2.0.2"
   }
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StruoCV</title>
     <link href="./src/output.css" rel="stylesheet" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -31,7 +32,7 @@
       </div>
     </header>
 
-    <div class="block md:grid md:justify-center relative p-4 bg-secondary">
+    <div class="block md:grid md:justify-center p-4 bg-secondary">
       <!-- personal informations -->
       <div
         id="personal-informations"
@@ -170,12 +171,7 @@
                   class="block mb-2 text-sm font-medium text-gray-900"
                   >About</label
                 >
-                <textarea
-                  id="about-message"
-                  rows="4"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary"
-                  placeholder="Write your thoughts here..."
-                ></textarea>
+                <div id="about-message" class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-b-lg border border-none focus:ring-primary focus:border-primary" style="min-height: 150px;"></div>
               </div>
               <!-- media -->
               <div class="mt-8" id="mediaInputs">
@@ -205,7 +201,7 @@
                     id="addNewSocialMedia"
                     class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
                   >
-                    <span class="text-black">+</span>
+                    <span class="text-white">+</span>
                   </button>
                 </div>
               </div>
@@ -225,7 +221,7 @@
       <!-- work experience -->
       <div
         id="work-experience"
-        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute top-0 md:-top-3 md:right-80 border border-nu-gray-100 md:w-form"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 border border-nu-gray-100 md:w-form"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -240,7 +236,7 @@
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
               <img
-                src="./icons/personalStep.svg"
+                src="./icons/personalinformations.svg"
                 alt=""
                 width="30"
                 height="30"
@@ -404,19 +400,14 @@
                   class="block mb-2 text-sm font-medium text-gray-900"
                   >Description</label
                 >
-                <textarea
-                  id="job-description"
-                  rows="4"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary"
-                  placeholder="Write your thoughts here..."
-                ></textarea>
+                <div id="job-description" class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary" style="min-height: 50px;"></div>
               </div>
             </div>
           </div>
           <div class="block md:flex md:justify-center">
             <button
               id="AddNewWorkExperience"
-              class="w-full md:w-input border-none outline-dashed outline-primary rounded-lg mt-5"
+              class="w-full md:w-input border-none outline-dashed outline-primary rounded-lg mt-24"
             >
               Add work experience
             </button>
@@ -440,7 +431,7 @@
       <!-- education -->
       <div
         id="education"
-        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute top-0 md:-top-3 md:right-80 border border-nu-gray-100 md:w-form"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 border border-nu-gray-100 md:w-form"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -455,13 +446,13 @@
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
               <img
-                src="./icons/personalStep.svg"
+                src="./icons/personalinformations.svg"
                 alt=""
                 width="30"
                 height="30"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <div class="p-2 border border-primary rounded-full">
                 <img
@@ -626,19 +617,14 @@
                   class="block mb-2 text-sm font-medium text-gray-900"
                   >Description</label
                 >
-                <textarea
-                  id="study-description"
-                  rows="4"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary"
-                  placeholder="Write your thoughts here..."
-                ></textarea>
+                <div id="study-description" class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary" style="min-height: 50px;"></div>
               </div>
             </div>
           </div>
           <div class="block md:flex md:justify-center">
             <button
               id="AddNewEducation"
-              class="w-full md:w-input border outline-dashed outline-primary rounded-lg mt-5"
+              class="w-full md:w-input border outline-dashed outline-primary rounded-lg mt-24"
             >
               Add Education
             </button>
@@ -664,7 +650,7 @@
 
       <div
         id="certifications"
-        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 left-2 md:left-80 border border-nu-gray-100 md:w-form"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 border border-nu-gray-100 md:w-form"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -680,21 +666,21 @@
             <div class="block md:flex justify-center mt-7">
               <div class="flex items-center">
                 <img
-                  src="./icons/personalStep.svg"
+                  src="./icons/personalinformations.svg"
                   alt=""
                   width="30"
                   height="30"
                 />
                 <div class="h-2.5 bg-primary rounded-full w-12"></div>
                 <img
-                  src="./icons/work-step.svg"
+                  src="./icons/Workexperience.svg"
                   alt=""
                   width="30"
                   height="30"
                 />
                 <div class="h-2.5 bg-primary rounded-full w-12"></div>
                 <img
-                  src="./icons/educationStep.svg"
+                  src="./icons/education.svg"
                   alt=""
                   width="30"
                   height="30"
@@ -790,7 +776,7 @@
                   id="AddNewCertification"
                   class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
                 >
-                  <span class="text-black">+</span>
+                  <span class="text-white">+</span>
                 </button>
               </div>
             </div>
@@ -814,7 +800,7 @@
       <!-- language -->
       <div
         id="language"
-        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-80 border border-nu-gray-100 md:w-form"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 border border-nu-gray-100 md:w-form"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -829,23 +815,23 @@
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
               <img
-                src="./icons/personalStep.svg"
+                src="./icons/personalinformations.svg"
                 alt=""
                 width="30"
                 height="30"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <img
-                src="./icons/educationStep.svg"
+                src="./icons/education.svg"
                 alt=""
                 width="30"
                 height="30"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <img
-                src="./icons/certificationStep.svg"
+                src="./icons/certification.svg"
                 alt=""
                 width="30"
                 height="30"
@@ -900,7 +886,7 @@
                 id="AddNewLanguage"
                 class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
               >
-                <span class="text-black">+</span>
+                <span class="text-white">+</span>
               </button>
             </div>
           </div>
@@ -924,7 +910,7 @@
       <!-- skills -->
       <div
         id="skills"
-        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-80 border border-nu-gray-100 md:w-form"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 border border-nu-gray-100 md:w-form"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -939,30 +925,30 @@
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
               <img
-                src="./icons/personalStep.svg"
+                src="./icons/personalinformations.svg"
                 alt=""
                 width="30"
                 height="30"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <img
-                src="./icons/educationStep.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
-              <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/certificationStep.svg"
+                src="./icons/education.svg"
                 alt=""
                 width="30"
                 height="30"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <img
-                src="./icons/languageStep.svg"
+                src="./icons/certification.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/languag.svg"
                 alt=""
                 width="40"
                 height="40"
@@ -995,7 +981,7 @@
                   id="AddNewSoftSkill"
                   class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
                 >
-                  <span class="text-black">+</span>
+                  <span class="text-white">+</span>
                 </button>
               </div>
             </div>
@@ -1011,7 +997,7 @@
                   id="AddNewHardSkill"
                   class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
                 >
-                  <span class="text-black">+</span>
+                  <span class="text-white">+</span>
                 </button>
               </div>
             </div>
@@ -1035,7 +1021,7 @@
       <!-- finish -->
       <div
         id="Download"
-        class="hidden h-auto bg-white rounded-lg px-3 mt-7 absolute -top-2 right-2 md:right-80 border border-nu-gray-100 md:w-form"
+        class="hidden h-auto bg-white rounded-lg px-3 mt-7 border border-nu-gray-100 md:w-form"
       >
         <form action="">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
@@ -1050,37 +1036,37 @@
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
               <img
-                src="./icons/personalStep.svg"
+                src="./icons/personalinformations.svg"
                 alt=""
                 width="30"
                 height="30"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/work-step.svg" alt="" width="30" height="30" />
+              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <img
-                src="./icons/educationStep.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
-              <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/certificationStep.svg"
+                src="./icons/education.svg"
                 alt=""
                 width="30"
                 height="30"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <img
-                src="./icons/languageStep.svg"
+                src="./icons/certification.svg"
+                alt=""
+                width="30"
+                height="30"
+              />
+              <div class="h-2.5 bg-primary rounded-full w-12"></div>
+              <img
+                src="./icons/languag.svg"
                 alt=""
                 width="40"
                 height="40"
               />
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <img
-                src="./icons/skillStep.svg"
+                src="./icons/skills.svg"
                 alt=""
                 width="40"
                 height="40"
@@ -1105,10 +1091,12 @@
       </div>
       <div
         id="toast-box"
-        class="absolute top-8 right-8 flex justify-end flex-col overflow-hidden items-center"
+        class="absolute top-20 right-8 flex justify-end flex-col overflow-hidden items-center"
       ></div>
     </div>
-
-    <script src="./apps.js"></script>
+    
+    
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script  src="./apps.js"></script>
   </body>
 </html>
