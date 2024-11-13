@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StruoCV</title>
     <link href="./src/output.css" rel="stylesheet" />
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="">
     <header>
       <div class="w-full">
         <nav>
@@ -171,39 +174,44 @@
                   class="block mb-2 text-sm font-medium text-gray-900"
                   >About</label
                 >
-                <div id="about-message" class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-b-lg border border-none focus:ring-primary focus:border-primary" style="min-height: 150px;"></div>
+                <div
+                  id="about-message"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-b-lg border border-none focus:ring-primary focus:border-primary"
+                  style="min-height: 150px"
+                ></div>
               </div>
               <!-- media -->
               <div class="mt-8" id="mediaInputs">
                 <label for="base-input" class="mb-2">Media</label>
-                <div>
+                <div class="social-media-template hidden">
                   <label class="block mb-2 text-sm font-medium text-gray-900"
                     >Name</label
                   >
                   <select
                     id="add-media"
-                    class="bg-secondary border border-none text-gray-900 mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                    class="bg-secondary border border-none text-gray-900 mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 social-media-name"
                   >
                     <option selected>Choose</option>
                     <option>Linkedin</option>
                     <option>github</option>
                     <option>other</option>
                   </select>
+                  <label for="url">Url</label>
+                  <div class="flex md:h-10">
+                    <input
+                      type="text"
+                      id="media-url"
+                      class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 social-media-url"
+                    />
+                  </div>
                 </div>
-                <label for="url">Url</label>
-                <div class="flex md:h-10">
-                  <input
-                    type="text"
-                    id="media-url"
-                    class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
-                  />
-                  <button
-                    id="addNewSocialMedia"
-                    class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
-                  >
-                    <span class="text-white">+</span>
-                  </button>
-                </div>
+
+                <button
+                  id="addNewSocialMedia"
+                  class="p-2 bg-primary ml-14 text-lg rounded-lg flex justify-center items-center mt-3"
+                >
+                  <span class="text-white">+ Add Media</span>
+                </button>
               </div>
             </div>
           </div>
@@ -235,12 +243,14 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              <img
-                src="./icons/personalinformations.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/personalStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <div class="p-2 border border-primary rounded-full">
                 <img
@@ -307,21 +317,24 @@
                 <div
                   class="flex md:justify-normal justify-between md:h-10 md:gap-6"
                 >
-                <select id="job-month-from" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
-                  <option  > month</option>
-                  <option>January</option>
-                  <option>February</option>
-                  <option>March</option>
-                  <option>April</option>
-                  <option>May</option>
-                  <option>June</option>
-                  <option>July</option>
-                  <option>August</option>
-                  <option>September</option>
-                  <option>October</option>
-                  <option>November</option>
-                  <option>December</option>
-                </select>
+                  <select
+                    id="job-month-from"
+                    class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                  >
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
                   <input
                     type="text"
                     id="job-year-from"
@@ -333,8 +346,11 @@
                 <span class="mt-2 hidden md:block">-</span>
                 <div>
                   <div class="flex justify-between md:justify-normal md:gap-6">
-                    <select id="job-month-to" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
-                      <option  > month</option>
+                    <select
+                      id="job-month-to"
+                      class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                    >
+                      <option>month</option>
                       <option>January</option>
                       <option>February</option>
                       <option>March</option>
@@ -400,7 +416,11 @@
                   class="block mb-2 text-sm font-medium text-gray-900"
                   >Description</label
                 >
-                <div id="job-description" class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary" style="min-height: 50px;"></div>
+                <div
+                  id="job-description"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary"
+                  style="min-height: 50px"
+                ></div>
               </div>
             </div>
           </div>
@@ -445,14 +465,23 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              <img
-                src="./icons/personalinformations.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/personalStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/work-step.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <div class="p-2 border border-primary rounded-full">
                 <img
@@ -524,21 +553,24 @@
                 <div
                   class="flex md:justify-normal justify-between md:h-10 md:gap-6"
                 >
-                <select id="education-month-from" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
-                  <option  > month</option>
-                  <option>January</option>
-                  <option>February</option>
-                  <option>March</option>
-                  <option>April</option>
-                  <option>May</option>
-                  <option>June</option>
-                  <option>July</option>
-                  <option>August</option>
-                  <option>September</option>
-                  <option>October</option>
-                  <option>November</option>
-                  <option>December</option>
-                </select>
+                  <select
+                    id="education-month-from"
+                    class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                  >
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
                   <input
                     type="Number"
                     id="education-year-from"
@@ -550,8 +582,11 @@
                 <span class="mt-2 hidden md:block md:px-2">-</span>
                 <div>
                   <div class="flex justify-between md:justify-normal md:gap-6">
-                    <select id="education-month-to" class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5">
-                      <option  > month</option>
+                    <select
+                      id="education-month-to"
+                      class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                    >
+                      <option>month</option>
                       <option>January</option>
                       <option>February</option>
                       <option>March</option>
@@ -617,7 +652,11 @@
                   class="block mb-2 text-sm font-medium text-gray-900"
                   >Description</label
                 >
-                <div id="study-description" class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary" style="min-height: 50px;"></div>
+                <div
+                  id="study-description"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary"
+                  style="min-height: 50px"
+                ></div>
               </div>
             </div>
           </div>
@@ -665,26 +704,32 @@
           <div class="block md:flex justify-center mt-7">
             <div class="block md:flex justify-center mt-7">
               <div class="flex items-center">
-                <img
-                  src="./icons/personalinformations.svg"
-                  alt=""
-                  width="30"
-                  height="30"
-                />
+                <div class="p-2 border border-primary bg-success rounded-full">
+                  <img
+                    src="./icons/personalStep.svg"
+                    alt=""
+                    width="30"
+                    height="30"
+                  />
+                </div>
                 <div class="h-2.5 bg-primary rounded-full w-12"></div>
-                <img
-                  src="./icons/Workexperience.svg"
-                  alt=""
-                  width="30"
-                  height="30"
-                />
+                <div class="p-2 border border-primary bg-success rounded-full">
+                  <img
+                    src="./icons/work-step.svg"
+                    alt=""
+                    width="30"
+                    height="30"
+                  />
+                </div>
                 <div class="h-2.5 bg-primary rounded-full w-12"></div>
-                <img
-                  src="./icons/education.svg"
-                  alt=""
-                  width="30"
-                  height="30"
-                />
+                <div class="p-2 border border-primary bg-success rounded-full">
+                  <img
+                    src="./icons/educationStep.svg"
+                    alt=""
+                    width="30"
+                    height="30"
+                  />
+                </div>
                 <div class="h-2.5 bg-primary rounded-full w-12"></div>
                 <div class="p-2 border border-primary rounded-full">
                   <img
@@ -814,31 +859,44 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              <img
-                src="./icons/personalinformations.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/personalStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/work-step.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/education.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/educationStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/certification.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg bg-success rounded-full">
+                <img
+                  src="./icons/certificationStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <div class="p-2 border border-primary rounded-full py-3">
-                <img src="./icons/languag.svg" alt="" width="30" height="30" />
+                <img src="./icons/languag.svg" alt="" width="40" height="40" />
               </div>
               <div class="h-2.5 bg-gray-400 rounded-full w-12"></div>
               <img
@@ -853,7 +911,8 @@
             </div>
           </div>
 
-          <div class="md:grid md:justify-center md:mt-6">
+          <div class="md:grid md:justify-center md:mt-6" id="languageInputs">
+            <label for="">languages</label>
             <label class="block mb-2 text-sm font-medium text-gray-900"
               >Select language</label
             >
@@ -872,24 +931,58 @@
               >Level</label
             >
             <div id="AddLanguage">
-            <div class="flex md:h-10" >
+              <div class="flex md:h-10">
+                <select
+                  id="add-level"
+                  class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
+                >
+                  <option selected>Choose</option>
+                  <option>Pre Intermediate</option>
+                  <option>Intermediate</option>
+                  <option>Proficiency</option>
+                </select>
+              </div>
+            </div>
+            <div class="languages-template hidden">
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Select language</label
+              >
               <select
-                id="add-level"
-                class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
+                id="add-language"
+                class="bg-secondary border border-none text-gray-900 mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
               >
                 <option selected>Choose</option>
-                <option>Pre Intermediate</option>
-                <option>Intermediate</option>
-                <option>Proficiency</option>
+                <option>English</option>
+                <option>Arabic</option>
+                <option>Frensh</option>
+                <option>Espagnol</option>
+                <option>Arabic</option>
               </select>
-              <button
-                id="AddNewLanguage"
-                class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Level</label
               >
-                <span class="text-white">+</span>
-              </button>
+              <div id="AddLanguage">
+                <div class="flex md:h-10">
+                  <select
+                    id="add-level"
+                    class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
+                  >
+                    <option selected>Choose</option>
+                    <option>Pre Intermediate</option>
+                    <option>Intermediate</option>
+                    <option>Proficiency</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="flex justify-center">
+            <button
+              id="AddNewLanguage"
+              class="p-2 bg-primary ml-4 text-md rounded-lg font-semibold flex justify-center items-center"
+            >
+              <span class="text-white">Add Language</span>
+            </button>
           </div>
           <div class="flex justify-around">
             <button
@@ -924,35 +1017,52 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              <img
-                src="./icons/personalinformations.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/personalStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/work-step.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/education.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/educationStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/certification.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg bg-success rounded-full">
+                <img
+                  src="./icons/certificationStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/languag.svg"
-                alt=""
-                width="40"
-                height="40"
-              />
+              <div
+                class="p-2 py-3 border border-primary bg-success rounded-full"
+              >
+                <img
+                  src="./icons/languageStep.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <div class="p-2 border border-primary rounded-full">
                 <img
@@ -1035,48 +1145,70 @@
           </div>
           <div class="block md:flex justify-center mt-7">
             <div class="flex items-center">
-              <img
-                src="./icons/personalinformations.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/personalStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img src="./icons/Workexperience.svg" alt="" width="30" height="30" />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/work-step.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/education.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/educationStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/certification.svg"
-                alt=""
-                width="30"
-                height="30"
-              />
+              <div class="p-2 border border-primary bg bg-success rounded-full">
+                <img
+                  src="./icons/certificationStep.svg"
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/languag.svg"
-                alt=""
-                width="40"
-                height="40"
-              />
+              <div
+                class="p-2 py-3 border border-primary bg-success rounded-full"
+              >
+                <img
+                  src="./icons/languageStep.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
-              <img
-                src="./icons/skills.svg"
-                alt=""
-                width="40"
-                height="40"
-                class="mb-2"
-              />
+              <div class="p-2 border border-primary bg-success rounded-full">
+                <img
+                  src="./icons/skillStep.svg"
+                  alt=""
+                  width="35"
+                  height="35"
+                  class="mb-2"
+                />
+              </div>
               <div class="h-2.5 bg-primary rounded-full w-12"></div>
               <div class="p-2 border border-primary rounded-full">
                 <img src="./icons/succes.svg" alt="" width="30" height="30" />
               </div>
             </div>
+          </div>
+          <div class="flex text-2xl justify-center font-thin">
+            <span>Choose Model</span>
           </div>
 
           <div class="flex justify-around">
@@ -1094,9 +1226,181 @@
         class="absolute top-20 right-8 flex justify-end flex-col overflow-hidden items-center"
       ></div>
     </div>
-    
-    
+    <!-- template of the first cv -->
+     <div class="bg-secondary p-52"> 
+    <div class="flex bg-white p-7 py-10 space-x-20 mt-7">
+      <div id="right-side" class="ml-6">
+        <h1 class="font-bold text-5xl">Kate Bishop</h1>
+        <div class="Job-title text-nu-blue-500 mt-2">
+          <span class="font-semibold text-xl">Front-End Developer</span>
+        </div>
+        <div class="mt-7">
+          <h3 class="text-nu-blue-500 font-semibold text-md">Contacts</h3>
+          <div class="flex mb-3">
+            <img
+              src="./icons/cv1/email.svg"
+              alt=""
+              width="24"
+              height="24"
+              class="mr-2"
+            />kate.bishop@katedesign.com
+          </div>
+          <div class="flex mb-3">
+            <img
+              src="./icons/cv1/linkedin.svg"
+              alt=""
+              width="24"
+              height="24"
+              class="mr-2"
+            />kate.bishop@katedesign.com
+          </div>
+          <div class="flex mb-3">
+            <img
+              src="./icons/cv1/github.svg"
+              alt=""
+              width="24"
+              height="24"
+              class="mr-2"
+            />kate.bishop@katedesign.com
+          </div>
+          <div class="flex mb-3">
+            <img
+              src="./icons/cv1/phone.svg"
+              alt=""
+              width="24"
+              height="24"
+              class="mr-2"
+            />kate.bishop@katedesign.com
+          </div>
+        </div>
+        <div class="flex flex-col mt-7">
+          <h3 class="text-nu-blue-500 font-semibold text-md">Langue</h3>
+          <span class=" mb-2">Français: Langue maternelle</span>
+          <span class=" mb-2"> Français: Langue maternelle</span>
+          <span class=" mb-2">Français: Langue maternelle</span>
+          <span class=" mb-2"> Français: Langue maternelle</span>
+        </div>
+        <div class="mt-7">
+          <h3 class="text-nu-blue-500 font-semibold text-md">certifications</h3>
+          <ul>
+            <li>
+              Certified React Developer - <span>Link to certificate</span>
+            </li>
+            <li>
+              Certified React Developer - <span>Link to certificate</span>
+            </li>
+            <li>Certified React Developer - <span>to certificate</span></li>
+            <li>
+              Certified React Developer - <span>Link to certificate</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        id="left-side"
+        class="bg-nu-blue-50 p-5 pb-72 border-none rounded-lg"
+      >
+      <div class="ml-8">
+        <div id="description" class="mt-8 ">
+          <p>
+            Passionate Front-End Developer with 4+ years of experience creating
+            dynamic, responsive, and user-friendly web applications.
+            Specializing in HTML, CSS, JavaScript, and React.js with a strong
+            focus on delivering high-quality, performant user interfaces.
+            Experienced in working in agile environments and collaborating with
+            cross-functional teams to drive project success.
+          </p>
+        </div>
+        <div class="mt-7">
+          <span class=" text-nu-blue-500 font-semibold text-lg">Expériences professionnelles</span>
+            <h3 class="font-bold text-xl mt-2 mb-1">Développeur Front-End</h3>
+            <div class=" text-nu-blue-500 font-semibold text-lg mb-2">WebAgency Paris, Juillet 2021 - Present</div>
+            <div>
+              • Conception et développement de pages web responsive à l'aide de
+              React.js. <br> • Collaboration avec les UX/UI designers pour améliorer
+              l'expérience utilisateur. <br> • Maintenance et amélioration de la
+              performance des sites existants.
+            </div>
+          <div>
+            <h3 class="font-bold text-xl mt-2 mb-1">Développeur Front-End</h3>
+            <div class=" text-nu-blue-500 font-semibold text-lg mb-2">WebAgency Paris, Juillet 2021 - Present</div>
+            <div>
+              • Conception et développement de pages web responsive à l'aide de
+              React.js. <br> • Collaboration avec les UX/UI designers pour améliorer
+              l'expérience utilisateur. <br> • Maintenance et amélioration de la
+              performance des sites existants.
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mt-2 mb-1">Développeur Front-End</h3>
+            <div class=" text-nu-blue-500 font-semibold text-lg mb-2">WebAgency Paris, Juillet 2021 - Present</div>
+            <div>
+              • Conception et développement de pages web responsive à l'aide de
+              React.js. <br> • Collaboration avec les UX/UI designers pour améliorer
+              l'expérience utilisateur. <br> • Maintenance et amélioration de la
+              performance des sites existants.
+            </div>
+          </div>
+        </div>
+        <h2 class="mt-3 text-nu-blue-500 font-semibold text-lg">Education & Learning</h2>
+        <div>
+          <h3 class="font-bold text-xl mt-2 mb-1">Développeur Front-End</h3>
+          <div class=" text-nu-blue-500 font-semibold text-lg mb-2">WebAgency Paris, Juillet 2021 - Present</div>
+          <div>
+            Formation en développement logiciel, algorithmes, structures de
+            données, et génie logiciel.
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mt-2 mb-1">Développeur Front-End</h3>
+          <div class=" text-nu-blue-500 font-semibold text-lg mb-2">WebAgency Paris, Juillet 2021 - Present</div>
+          <div>
+            Formation en développement logiciel, algorithmes, structures de
+            données, et génie logiciel.
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold text-xl mt-2 mb-1">Licence en Informatique</h3>
+          <div class=" text-nu-blue-500 font-semibold text-lg mb-2">WebAgency Paris, Juillet 2021 - Present</div>
+          <div>
+            Formation en développement logiciel, algorithmes, structures de
+            données, et génie logiciel.
+          </div>
+        </div>
+        <div id="experience" class="flex justify-stretch space-x-36 mt-7">
+          <div>
+            <h3 class="text-nu-blue-500">Compétences techniques</h3>
+            <ul>
+              <li>HTML5, CSS3, JavaScript (ES6+)</li>
+              <li>React.js, Next.js</li>
+              <li>Sass, Tailwind CSS</li>
+              <li>Git & GitHub</li>
+              <li>REST APIs, AJAX</li>
+              <li>Testing: Jest, React Testing Library</li>
+              <li>Agile Methodologies (Scrum, Kanban)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-nu-blue-500">Compétences techniques</h3>
+            <ul>
+              <li>HTML5, CSS3, JavaScript (ES6+)</li>
+              <li>React.js, Next.js</li>
+              <li>Sass, Tailwind CSS</li>
+              <li>Git & GitHub</li>
+              <li>REST APIs, AJAX</li>
+              <li>Testing: Jest, React Testing Library</li>
+              <li>Agile Methodologies (Scrum, Kanban)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+    <button>Download</button>
+
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
-    <script  src="./apps.js"></script>
+    <script src="./apps.js"></script>
   </body>
 </html>
