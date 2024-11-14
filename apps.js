@@ -51,11 +51,11 @@ var fullName = document.getElementById("user-name");
 var email = document.getElementById("user-email");
 var phoneCode = document.getElementById("phone-code");
 var phoneNumber = document.getElementById("user-Phone");
-var jobTitle = document.getElementById("Job-title");
-const about = new Quill('#about-message', {
-  theme: 'snow',
-  placeholder: 'Write about you...',
-})
+var position = document.getElementById("Job-title");
+const about = new Quill("#about-message", {
+  theme: "snow",
+  placeholder: "Write about you...",
+});
 var addMediaInput = document.getElementById("add-media");
 var mediaUrl = document.getElementById("media-url");
 // work experience inputs
@@ -66,14 +66,14 @@ var jobYearFrom = document.getElementById("job-year-from");
 var jobMonthTo = document.getElementById("job-month-to");
 var jobYearTo = document.getElementById("job-year-to");
 var currentlyWork = document.getElementById("check-currently-work");
-var workDescription = new Quill('#job-description', {
-  theme: 'snow',
-  placeholder: 'Write about your position...',
-})
+var workDescription = new Quill("#job-description", {
+  theme: "snow",
+  placeholder: "Write about your position...",
+});
 // education inputs
-var studyDescription = new Quill('#study-description', {
-  theme: 'snow',
-  placeholder: 'Write about your career...',
+var studyDescription = new Quill("#study-description", {
+  theme: "snow",
+  placeholder: "Write about your career...",
 });
 // certifications inputs
 var certificatName = document.getElementById("certificat-name");
@@ -96,8 +96,8 @@ let userData = {
   certif: [],
   lang: [],
   skill: {
-    softSkills:[],
-    hardSkills:[],
+    softSkills: [],
+    hardSkills: [],
   },
 };
 
@@ -241,14 +241,16 @@ confirmInformations.addEventListener("click", (e) => {
 addNewSocialMedia.addEventListener("click", (e) => {
   e.preventDefault();
   const socialMediaTemplate = document.querySelector(".social-media-template");
-  const clonedSocialMedia =socialMediaTemplate.cloneNode(true)
-  clonedSocialMedia.classList.remove("hidden")
-  const socialMediaIndex=document.querySelectorAll('.social-media').length + 1;
-  clonedSocialMedia.dataset.index= socialMediaIndex;
-  clonedSocialMedia.querySelector(`social-media-name-${socialMediaIndex}`)
-  clonedSocialMedia.querySelector('.social-media-url').id = `social-media-url-${socialMediaIndex}`;
+  const clonedSocialMedia = socialMediaTemplate.cloneNode(true);
+  clonedSocialMedia.classList.remove("hidden");
+  const socialMediaIndex =
+    document.querySelectorAll(".social-media").length + 1;
+  clonedSocialMedia.dataset.index = socialMediaIndex;
+  clonedSocialMedia.querySelector(`social-media-name-${socialMediaIndex}`);
+  clonedSocialMedia.querySelector(
+    ".social-media-url"
+  ).id = `social-media-url-${socialMediaIndex}`;
   AddMedia.insertBefore(clonedSocialMedia, addNewSocialMedia);
-
 });
 
 let certifCounter = 1;
@@ -338,7 +340,6 @@ AddNewHardSkill.addEventListener("click", (e) => {
               />`;
   AddhardSkill.appendChild(addHardInput);
 });
-
 
 AddNewWorkExperience.addEventListener("click", (e) => {
   e.preventDefault();
@@ -539,9 +540,9 @@ AddNewLanguage.addEventListener("click", (e) => {
   e.preventDefault();
 
   const languageInputsContainer = document.getElementById("languageInputs");
-  const languageTemplate = document.querySelector('.languages-template');
+  const languageTemplate = document.querySelector(".languages-template");
   const clonedLanguage = languageTemplate.cloneNode(true);
-  clonedLanguage.classList.remove('hidden');
+  clonedLanguage.classList.remove("hidden");
   clonedLanguage.classList.add("cloned-language");
   languageInputsContainer.appendChild(clonedLanguage);
 });
@@ -560,42 +561,77 @@ function storepersonalInfo() {
     fullName: fullName.value,
     email: email.value,
     phoneCode: phoneCode.value,
-    jobTitle: jobTitle.value,
+    phoneNumber: phoneNumber.value,
+    jobTitle: position.value,
     about: about.getText(),
     socialMedia: [],
   };
 
-  const socialMediaFields = document.querySelectorAll('.social-media-template:not(.hidden)')
-  socialMediaFields.forEach((field)=>{
-    const mediaSelect = field.querySelector('.social-media-name');
-    const mediaInput = field.querySelector('.social-media-url');
-    if (mediaSelect && mediaInput){
-      const mediaName= mediaSelect.value
+  const socialMediaFields = document.querySelectorAll(
+    ".social-media-template:not(.hidden)"
+  );
+  socialMediaFields.forEach((field) => {
+    const mediaSelect = field.querySelector(".social-media-name");
+    const mediaInput = field.querySelector(".social-media-url");
+    if (mediaSelect && mediaInput) {
+      const mediaName = mediaSelect.value;
       const mediaUrl = mediaInput.value;
       personalInfo.socialMedia.push({
         addMediaInput: mediaName,
         mediaUrl: mediaUrl,
       });
     }
-  })
-  
+  });
+
   userData.personalInfos.push(personalInfo);
   console.log(userData.personalInfos);
+  const fullNameDisplay = document.getElementById("fullNameDisplay");
+  const emailDisplay = document.getElementById("emailDisplay");
+  const displayPosition = document.getElementById("displayPosition");
+  const displayAbout = document.getElementById("displayAbout");
+  const displayPhone = document.getElementById("displayPhone");
+  const displayProfileImage = document.getElementById("displayAbout");
+  const linkedin = document.getElementById("displayLinkedIn");
+  const github = document.getElementById("displayGithub");
+  if (fullNameDisplay) {
+    fullNameDisplay.textContent = personalInfo.fullName;
+  }
+  if (emailDisplay) {
+    emailDisplay.textContent = personalInfo.email;
+  }
+  if (displayPosition) {
+    displayPosition.textContent = personalInfo.jobTitle;
+  }
+  if (displayAbout) {
+    displayAbout.textContent = personalInfo.about;
+  }
+  if (displayPhone) {
+    displayPhone.textContent = `${personalInfo.phoneCode} ${personalInfo.phoneNumber}`;
+  }
+  personalInfo.socialMedia.forEach((media)=>{
+   if(media.addMediaInput === "Linkedin"){
+    linkedin.textContent= media.mediaUrl;
+   } 
+   if (media.addMediaInput === "github"){
+    github.textContent= media.mediaUrl;
+   }
+  })
 }
 //store workExperience
 function storeWorkExperience() {
   const workContainers = document.querySelectorAll("#addWork > div");
 
   workContainers.forEach((container) => {
-    const companyName = container.querySelector("#company-name").value ;
+    const companyName = container.querySelector("#company-name").value;
     const jobTitle = container.querySelector("#job-title").value;
     const jobMonthFrom = container.querySelector("#job-month-from").value;
     const jobYearFrom = container.querySelector("#job-year-from").value;
-    const jobMonthTo = container.querySelector("#job-month-to").value ;
+    const jobMonthTo = container.querySelector("#job-month-to").value;
     const jobYearTo = container.querySelector("#job-year-to").value;
-    const currentlyWork = container.querySelector("#check-currently-work")?.checked || false;
-    const workDescription =
-      container.querySelector("#job-description").value;
+    const currentlyWork =
+      container.querySelector("#check-currently-work")?.checked || false;
+    const workDescription = container.querySelector("#job-description").value;
+
     const workExp = {
       companyName,
       jobTitle,
@@ -606,36 +642,82 @@ function storeWorkExperience() {
       currentlyWork,
       workDescription,
     };
+
     userData.Work.push(workExp);
   });
+
   console.log(userData.Work);
+
+  userData.Work.forEach(work => {
+    const experienceInfoHtml = `
+      <div>
+        <h3 class="font-bold text-xl mt-2 mb-1">${work.jobTitle}</h3>
+        <div class="text-nu-blue-500 font-semibold text-md mb-2">
+          <span>${work.companyName}</span>,  
+          <span>${work.jobMonthFrom}</span>  
+          <span>${work.jobYearFrom}</span> - 
+          <span>${work.jobMonthTo}</span> 
+          <span>${work.jobYearTo}</span>
+        </div>
+        <div>
+          ${work.workDescription}
+        </div>
+      </div>
+    `;
+    document.querySelector("#displayExperiences").innerHTML += experienceInfoHtml;
+  });
 }
+
 //store education data
 function storeEducation() {
   const schoolContainers = document.querySelectorAll("#addEducation > div");
   schoolContainers.forEach((container) => {
-    const institutName = container.querySelector("#Institution-name").value ;
+    const institutName = container.querySelector("#Institution-name").value;
     const field = container.querySelector("#field-of-study").value;
     const degree = container.querySelector("#Institution-degree").value;
-    const educationMonthFrom= container.querySelector("#education-month-from").value;
-    const educationYearFrom = container.querySelector("#education-year-from").value ;
-    const educationMonthTo = container.querySelector("#education-month-to").value;
+    const educationMonthFrom = container.querySelector(
+      "#education-month-from"
+    ).value;
+    const educationYearFrom = container.querySelector(
+      "#education-year-from"
+    ).value;
+    const educationMonthTo = container.querySelector(
+      "#education-month-to"
+    ).value;
     const educationYearTo = container.querySelector("#education-year-to").value;
-    const currentlyStudy = container.querySelector("#check-currently-study")?.checked || false;
+    const currentlyStudy =
+      container.querySelector("#check-currently-study")?.checked || false;
     const studyDescription =
       container.querySelector("#study-description").value;
     const workExp = {
       institutName,
       field,
       degree,
-educationMonthFrom,
-educationYearFrom,
-educationMonthTo,
-educationYearTo,
-currentlyStudy,
-studyDescription,
+      educationMonthFrom,
+      educationYearFrom,
+      educationMonthTo,
+      educationYearTo,
+      currentlyStudy,
+      studyDescription,
     };
     userData.school.push(workExp);
+
+    const educationInfoHtml = `
+      <div id="displayEducationInfo">
+        <h3 class="font-bold text-xl mt-2 mb-1">${degree} in ${field}</h3>
+        <div class="text-nu-blue-500 font-semibold text-md mb-2">
+          <span id="institutName">${institutName}</span>,  
+          <span id="educationmonthfrom">${educationMonthFrom}</span>  
+          <span id="educationyearfrom">${educationYearFrom}</span> - 
+          <span id="educationmonthto">${educationMonthTo}</span> 
+          <span id="educationsyearto">${educationYearTo}</span>
+        </div>
+        <div id="diaplayeducationdesc">
+          ${studyDescription}
+        </div>
+      </div>
+    `;
+    document.querySelector("#displayEducationInfo").innerHTML += educationInfoHtml;
   });
 }
 
@@ -650,13 +732,16 @@ function storecertificat() {
     cetificatUrl: cetificatUrl.value,
   };
   userData.certif.push(certificat);
- const dynamicForms=document.querySelectorAll('[id^="certif-"]')
- dynamicForms.forEach((form) => {
+  const dynamicForms = document.querySelectorAll('[id^="certif-"]');
+  dynamicForms.forEach((form) => {
     const dynamicCertificat = {
       certificatName: form.querySelector(".dynamic-certificat-name").value,
-      certificatMonthFrom: form.querySelector(".dynamic-certificat-month-from").value,
-      certificatYearFrom: form.querySelector(".dynamic-certificat-year-from").value,
-      certificatMonthTo: form.querySelector(".dynamic-certificat-month-to").value,
+      certificatMonthFrom: form.querySelector(".dynamic-certificat-month-from")
+        .value,
+      certificatYearFrom: form.querySelector(".dynamic-certificat-year-from")
+        .value,
+      certificatMonthTo: form.querySelector(".dynamic-certificat-month-to")
+        .value,
       certificatYearTo: form.querySelector(".dynamic-certificat-year-to").value,
       cetificatUrl: form.querySelector(".dynamic-certificat-url").value,
     };
@@ -664,6 +749,17 @@ function storecertificat() {
   });
 
   console.log(userData.certif);
+
+  const certificatContainer = document.getElementById('certificates-list');
+ 
+  certificatContainer.innerHTML = '';
+
+  userData.certif.forEach(certificat => {
+    const certificatItem = document.createElement('li');
+    const formattedText = `${certificat.certificatName} <br/>(${certificat.certificatMonthFrom} ${certificat.certificatYearFrom} - ${certificat.certificatMonthTo} ${certificat.certificatYearTo}) <br/> - <a href="${certificat.cetificatUrl}" target="_blank">Link to certificate</a>`;
+    certificatItem.innerHTML = formattedText;
+    certificatContainer.appendChild(certificatItem);
+  });
 }
 //store language data
 function storeLanguage() {
@@ -677,14 +773,29 @@ function storeLanguage() {
   const clonedLanguages = document.querySelectorAll(".cloned-language");
 
   clonedLanguages.forEach((Language) => {
-    const selectLanguage = Language.querySelector('#add-language').value;
-    const selectLevel = Language.querySelector('#add-level').value;
-      userData.lang.push({
-        Language: selectLanguage,
-        Level: selectLevel,
-      });
+    const selectLanguage = Language.querySelector("#add-language").value;
+    const selectLevel = Language.querySelector("#add-level").value;
+    userData.lang.push({
+      Language: selectLanguage,
+      Level: selectLevel,
+    });
   });
-  console.log(userData.lang); 
+  console.log(userData.lang);
+  // display languages on resume
+  const displayLanguages = document.getElementById("displayLanguages");
+  displayLanguages.innerHTML = "";
+  userData.lang.forEach((item) => {
+    const displayLanguageSpan = document.createElement("span");
+    const displayLevelSpan = document.createElement("span");
+    displayLanguageSpan.textContent = item.Language;
+    displayLevelSpan.textContent = item.Level;
+
+    const langLevdiv = document.createElement("div");
+    langLevdiv.appendChild(displayLanguageSpan);
+    langLevdiv.appendChild(document.createTextNode(":  "));
+    langLevdiv.appendChild(displayLevelSpan);
+    displayLanguages.appendChild(langLevdiv);
+  });
 }
 
 //store skills
@@ -692,8 +803,8 @@ function storeSkills() {
   const staticSoftSkill = document.getElementById("soft-skills").value;
   const staticHardSkill = document.getElementById("hard-skills").value;
 
-  const softSkillsInputs = document.querySelectorAll('.soft-skill-input');
-  const hardSkillsInputs = document.querySelectorAll('.hard-skill-input');
+  const softSkillsInputs = document.querySelectorAll(".soft-skill-input");
+  const hardSkillsInputs = document.querySelectorAll(".hard-skill-input");
 
   if (staticSoftSkill) {
     userData.skill.softSkills.push({ softSkill: staticSoftSkill });
@@ -703,15 +814,63 @@ function storeSkills() {
     userData.skill.hardSkills.push({ hardSkill: staticHardSkill });
   }
 
-  softSkillsInputs.forEach(input => {
+  softSkillsInputs.forEach((input) => {
     if (input.value) {
-      userData.skill.softSkills.push({ softSkill: input.value});
+      userData.skill.softSkills.push({ softSkill: input.value });
     }
   });
-  hardSkillsInputs.forEach(input => {
+  hardSkillsInputs.forEach((input) => {
     if (input.value) {
-      userData.skill.hardSkills.push({ hardSkill: input.value});
+      userData.skill.hardSkills.push({ hardSkill: input.value });
     }
   });
   console.log(userData.skill);
+
+  const displaySoftSkills = document.getElementById("displaySoftSkills");
+  const displayHardSkills = document.getElementById("displayHardSkills");
+
+  displaySoftSkills.innerHTML = "";
+  displayHardSkills.innerHTML = "";
+
+  userData.skill.softSkills.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item.softSkill;
+    displaySoftSkills.appendChild(li);
+  });
+
+  userData.skill.hardSkills.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item.hardSkill;
+    displayHardSkills.appendChild(li);
+  });
 }
+
+// download the resume
+const DownloadFirstResume= document.getElementById("DownloadFirstResume")
+const firstResume= document.getElementById("firstResume")
+DownloadFirstResume.addEventListener("click", async function () {
+
+  const filename = "my-cv.pdf";
+
+  const options = {
+    margin: 0,
+    filename: filename,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 3 },
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+  };
+  try {
+    await html2pdf().set(options).from(firstResume).save();
+  } catch (error) {
+    console.error("false:", error.message);
+  }
+});
+
+// to display the first resume
+const displayCv1 = document.getElementById("displayCv1");
+const resume1 = document.getElementById("resume1");
+displayCv1.addEventListener("click",(e)=>{
+  e.preventDefault()
+  navigateToDownload.classList.add("hidden")
+  resume1.classList.remove("hidden")
+})
