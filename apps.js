@@ -1,3 +1,5 @@
+import formValidator from "./formValidator.js";
+
 // navigation buttons
 const navigateToWorkExperience = document.getElementById(
   "NavigateToWorkExperience"
@@ -103,8 +105,12 @@ let userData = {
 
 //Navigation functions
 function ShowToWorkExperience() {
+  const valid = formValidator.validateForm(this);
+
+  // if (valid) {
   personalInformations.classList.add("hidden");
   workExperience.classList.remove("hidden");
+  // }
 }
 function backToInfos() {
   personalInformations.classList.remove("hidden");
@@ -548,11 +554,26 @@ AddNewLanguage.addEventListener("click", (e) => {
 });
 
 // display selected image
-function displayImg(event) {
-  const img = document.getElementById("showImg");
-  img.src = URL.createObjectURL(event.target.files[0]);
-  img.classList.remove("hidden");
-}
+window.displayImg = function (event) {
+  const file = event.target.files[0];
+  const profileImageElements = document.querySelectorAll(
+    ".displayProfileImage"
+  );
+  const showImgElement = document.getElementById("showImg");
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const imageSrc = e.target.result;
+      showImgElement.src = imageSrc;
+      showImgElement.classList.remove("hidden");
+      profileImageElements.forEach((imgElement) => {
+        imgElement.src = imageSrc;
+      });
+    };
+
+    reader.readAsDataURL(file);
+  }
+};
 
 //store personal infos
 function storepersonalInfo() {
@@ -563,13 +584,15 @@ function storepersonalInfo() {
     phoneCode: phoneCode.value,
     phoneNumber: phoneNumber.value,
     jobTitle: position.value,
-    about: about.getText(),
+    about: about.root.innerHTML,
     socialMedia: [],
   };
 
+  // Collect social media inputs
   const socialMediaFields = document.querySelectorAll(
     ".social-media-template:not(.hidden)"
   );
+
   socialMediaFields.forEach((field) => {
     const mediaSelect = field.querySelector(".social-media-name");
     const mediaInput = field.querySelector(".social-media-url");
@@ -584,39 +607,41 @@ function storepersonalInfo() {
   });
 
   userData.personalInfos.push(personalInfo);
-  console.log(userData.personalInfos);
-  const fullNameDisplay = document.getElementById("fullNameDisplay");
-  const emailDisplay = document.getElementById("emailDisplay");
-  const displayPosition = document.getElementById("displayPosition");
-  const displayAbout = document.getElementById("displayAbout");
-  const displayPhone = document.getElementById("displayPhone");
-  const displayProfileImage = document.getElementById("displayAbout");
-  const linkedin = document.getElementById("displayLinkedIn");
-  const github = document.getElementById("displayGithub");
-  if (fullNameDisplay) {
-    fullNameDisplay.textContent = personalInfo.fullName;
-  }
-  if (emailDisplay) {
-    emailDisplay.textContent = personalInfo.email;
-  }
-  if (displayPosition) {
-    displayPosition.textContent = personalInfo.jobTitle;
-  }
-  if (displayAbout) {
-    displayAbout.textContent = personalInfo.about;
-  }
-  if (displayPhone) {
-    displayPhone.textContent = `${personalInfo.phoneCode} ${personalInfo.phoneNumber}`;
-  }
-  personalInfo.socialMedia.forEach((media)=>{
-   if(media.addMediaInput === "Linkedin"){
-    linkedin.textContent= media.mediaUrl;
-   } 
-   if (media.addMediaInput === "github"){
-    github.textContent= media.mediaUrl;
-   }
-  })
+
+  // Populate resume fields
+  const fullNameDisplay = document.querySelectorAll(".fullNameDisplay");
+  const emailDisplay = document.querySelectorAll(".emailDisplay");
+  const displayPosition = document.querySelectorAll(".displayPosition");
+  const displayPhone = document.querySelectorAll(".displayPhone");
+  const linkedin = document.querySelectorAll(".displayLinkedIn");
+  const github = document.querySelectorAll(".displayGithub");
+
+  fullNameDisplay.forEach(
+    (element) => (element.textContent = personalInfo.fullName)
+  );
+  emailDisplay.forEach((element) => (element.textContent = personalInfo.email));
+  displayPhone.forEach(
+    (element) =>
+      (element.textContent = `${personalInfo.phoneCode} ${personalInfo.phoneNumber}`)
+  );
+  displayPosition.forEach(
+    (element) => (element.textContent = personalInfo.jobTitle)
+  );
+
+
+  personalInfo.socialMedia.forEach((media) => {
+    if (media.addMediaInput === "LinkedIn") {
+      linkedin.forEach((element) => {
+        element.textContent = media.mediaUrl;
+      });
+    } else if (media.addMediaInput === "GitHub") {
+      github.forEach((element) => {
+        element.textContent = media.mediaUrl;
+      });
+    }
+  });
 }
+
 //store workExperience
 function storeWorkExperience() {
   const workContainers = document.querySelectorAll("#addWork > div");
@@ -648,7 +673,10 @@ function storeWorkExperience() {
 
   console.log(userData.Work);
 
-  userData.Work.forEach(work => {
+  const displayWorkexp=document.querySelector("#displayExperiences")
+  const displayWorkexp1=document.querySelector("#displayExperiences1")
+  userData.Work.forEach((work) => {
+    if(displayWorkexp){
     const experienceInfoHtml = `
       <div>
         <h3 class="font-bold text-xl mt-2 mb-1">${work.jobTitle}</h3>
@@ -664,7 +692,18 @@ function storeWorkExperience() {
         </div>
       </div>
     `;
-    document.querySelector("#displayExperiences").innerHTML += experienceInfoHtml;
+    displayWorkexp.innerHTML +=experienceInfoHtml;
+    }
+    if(displayWorkexp1){
+      const experienceInfoHtml1 = `
+      <span class="text-xl font-serif">${work.jobTitle}</span>
+                <span class="font-serif text-nu-gray-100 text-md">${work.companyName}, ${work.jobMonthFrom} ${work.jobYearFrom} - ${work.jobMonthTo} ${work.jobYearTo}</span>
+                <p class="leading-5 mt-2">
+                ${work.workDescription}
+                </p>`;
+      displayWorkexp1.innerHTML +=experienceInfoHtml1;
+    }
+      
   });
 }
 
@@ -702,6 +741,9 @@ function storeEducation() {
     };
     userData.school.push(workExp);
 
+    const educationresume1=document.querySelector("#displayEducationInfo");
+    const educationresume2=document.querySelector("#displayEducationInfo2");
+if (educationresume1){
     const educationInfoHtml = `
       <div id="displayEducationInfo">
         <h3 class="font-bold text-xl mt-2 mb-1">${degree} in ${field}</h3>
@@ -717,7 +759,19 @@ function storeEducation() {
         </div>
       </div>
     `;
-    document.querySelector("#displayEducationInfo").innerHTML += educationInfoHtml;
+    educationresume1.innerHTML +=
+      educationInfoHtml;
+    }
+    if(educationresume2){
+      const educationInfoHtml1 = `
+      <span class="text-xl font-serif">${degree} en ${field}</span>
+      <span class="font-serif text-nu-gray-100 text-md">${institutName}, ${educationMonthFrom} ${educationYearFrom} - ${educationMonthTo} ${educationYearTo}</span>
+      <p class="leading-5 mt-2">
+        ${studyDescription}
+      </p> `;
+    educationresume2.innerHTML +=
+      educationInfoHtml1;
+    }
   });
 }
 
@@ -750,16 +804,18 @@ function storecertificat() {
 
   console.log(userData.certif);
 
-  const certificatContainer = document.getElementById('certificates-list');
+  const certificatContainer = document.querySelectorAll(".certificates-list");
  
-  certificatContainer.innerHTML = '';
-
-  userData.certif.forEach(certificat => {
-    const certificatItem = document.createElement('li');
-    const formattedText = `${certificat.certificatName} <br/>(${certificat.certificatMonthFrom} ${certificat.certificatYearFrom} - ${certificat.certificatMonthTo} ${certificat.certificatYearTo}) <br/> - <a href="${certificat.cetificatUrl}" target="_blank">Link to certificate</a>`;
-    certificatItem.innerHTML = formattedText;
-    certificatContainer.appendChild(certificatItem);
-  });
+  certificatContainer.forEach((element)=> {
+    element.innerHTML="";
+    userData.certif.forEach((certificat) => {
+      const certificatItem = document.createElement("li");
+      const formattedText = `${certificat.certificatName} <br/>(${certificat.certificatMonthFrom} ${certificat.certificatYearFrom} - ${certificat.certificatMonthTo} ${certificat.certificatYearTo}) <br/> - <a href="${certificat.cetificatUrl}" target="_blank">Link to certificate</a>`;
+      certificatItem.innerHTML = formattedText;
+      element.appendChild(certificatItem);
+      
+    });
+  })
 }
 //store language data
 function storeLanguage() {
@@ -782,19 +838,23 @@ function storeLanguage() {
   });
   console.log(userData.lang);
   // display languages on resume
-  const displayLanguages = document.getElementById("displayLanguages");
-  displayLanguages.innerHTML = "";
-  userData.lang.forEach((item) => {
-    const displayLanguageSpan = document.createElement("span");
-    const displayLevelSpan = document.createElement("span");
-    displayLanguageSpan.textContent = item.Language;
-    displayLevelSpan.textContent = item.Level;
+  const displayLanguages = document.querySelectorAll(".displayLanguages");
+  displayLanguages.forEach((element) => {
+    element.innerHTML = "";
+    userData.lang.forEach((item) => {
+      const displayLanguageSpan = document.createElement("span");
+      const displayLevelSpan = document.createElement("span");
 
-    const langLevdiv = document.createElement("div");
-    langLevdiv.appendChild(displayLanguageSpan);
-    langLevdiv.appendChild(document.createTextNode(":  "));
-    langLevdiv.appendChild(displayLevelSpan);
-    displayLanguages.appendChild(langLevdiv);
+      displayLanguageSpan.textContent = item.Language;
+      displayLevelSpan.textContent = item.Level;
+
+      const langLevdiv = document.createElement("div");
+      langLevdiv.appendChild(displayLanguageSpan);
+      langLevdiv.appendChild(document.createTextNode(":  "));
+      langLevdiv.appendChild(displayLevelSpan);
+
+      element.appendChild(langLevdiv);
+    });
   });
 }
 
@@ -826,41 +886,63 @@ function storeSkills() {
   });
   console.log(userData.skill);
 
-  const displaySoftSkills = document.getElementById("displaySoftSkills");
-  const displayHardSkills = document.getElementById("displayHardSkills");
+  const displaySoftSkills = document.querySelectorAll(".displaySoftSkills");
+  const displayHardSkills = document.querySelectorAll(".displayHardSkills");
 
-  displaySoftSkills.innerHTML = "";
-  displayHardSkills.innerHTML = "";
-
-  userData.skill.softSkills.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item.softSkill;
-    displaySoftSkills.appendChild(li);
+  displaySoftSkills.forEach((softSkillContainer) => {
+    softSkillContainer.innerHTML = "";
+    userData.skill.softSkills.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item.softSkill;
+      softSkillContainer.appendChild(li);
+    });
   });
 
-  userData.skill.hardSkills.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item.hardSkill;
-    displayHardSkills.appendChild(li);
+  displayHardSkills.forEach((hardSkillContainer) => {
+    hardSkillContainer.innerHTML = "";
+    userData.skill.hardSkills.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item.hardSkill;
+      hardSkillContainer.appendChild(li);
+    });
   });
 }
 
 // download the resume
-const DownloadFirstResume= document.getElementById("DownloadFirstResume")
-const firstResume= document.getElementById("firstResume")
+// 1st
+const DownloadFirstResume = document.getElementById("DownloadFirstResume");
+const firstResume = document.getElementById("firstResume");
 DownloadFirstResume.addEventListener("click", async function () {
-
   const filename = "my-cv.pdf";
 
   const options = {
     margin: 0,
     filename: filename,
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 3 },
-    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
   };
   try {
     await html2pdf().set(options).from(firstResume).save();
+  } catch (error) {
+    console.error("false:", error.message);
+  }
+});
+// 2nd
+const DownloadsecondResume = document.getElementById("DownloadsecondResume");
+const secondResume = document.getElementById("secondResume");
+DownloadsecondResume.addEventListener("click", async function () {
+  const filename = "my-cv.pdf";
+
+  const options = {
+    margin: 0,
+    filename: filename,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+  };
+  try {
+    await html2pdf().set(options).from(secondResume).save();
   } catch (error) {
     console.error("false:", error.message);
   }
@@ -869,8 +951,17 @@ DownloadFirstResume.addEventListener("click", async function () {
 // to display the first resume
 const displayCv1 = document.getElementById("displayCv1");
 const resume1 = document.getElementById("resume1");
-displayCv1.addEventListener("click",(e)=>{
-  e.preventDefault()
-  navigateToDownload.classList.add("hidden")
-  resume1.classList.remove("hidden")
+displayCv1.addEventListener("click", (e) => {
+  e.preventDefault();
+  navigateToDownload.classList.add("hidden");
+  resume1.classList.remove("hidden");
+});
+//display the second resume 
+const display2ndResume = document.getElementById("DisplayCv2");
+const resume2= document.getElementById("resume2")
+display2ndResume.addEventListener("click" , (e)=>{
+  e.preventDefault();
+  navigateToDownload.classList.add("hidden");
+  resume2.classList.remove("hidden")
+
 })

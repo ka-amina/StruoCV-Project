@@ -21,6 +21,7 @@ module.exports = {
         },
         input: "#F3DCDC",
         "success":"#28A745",
+        "error": "#F44336"
       },
       opacity: {
         secondary: "0.38",
