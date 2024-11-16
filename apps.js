@@ -105,12 +105,9 @@ let userData = {
 
 //Navigation functions
 function ShowToWorkExperience() {
-  const valid = formValidator.validateForm(this);
-
-  // if (valid) {
+  
   personalInformations.classList.add("hidden");
   workExperience.classList.remove("hidden");
-  // }
 }
 function backToInfos() {
   personalInformations.classList.remove("hidden");
@@ -184,7 +181,11 @@ function showToast() {
 //
 navigateToWorkExperience.addEventListener("click", (e) => {
   e.preventDefault();
+  const valid = formValidator.validateForm1(this);
+
+  if (valid) {
   ShowToWorkExperience();
+  }
 });
 backToPersonalInformations.addEventListener("click", (e) => {
   e.preventDefault();
@@ -192,8 +193,11 @@ backToPersonalInformations.addEventListener("click", (e) => {
 });
 //
 navigateToEducation.addEventListener("click", (e) => {
+  const valid = formValidator.validateForm2(this);
   e.preventDefault();
+  if (valid) {
   ShowEducation();
+  }
 });
 backToWorkExperience.addEventListener("click", (e) => {
   e.preventDefault();
@@ -201,17 +205,25 @@ backToWorkExperience.addEventListener("click", (e) => {
 });
 //
 navigateToCertifications.addEventListener("click", (e) => {
+  const valid= formValidator.validateEducation(this);
   e.preventDefault();
+  if(valid){
   Showcertificats();
+  }
 });
 backToEducation.addEventListener("click", (e) => {
   e.preventDefault();
+  
   backToEduc();
+ 
 });
 //
 navigateTolanguages.addEventListener("click", (e) => {
+  const valid= formValidator.validateCertification(this);
   e.preventDefault();
+  if(valid){
   Showlanguages();
+}
 });
 backToCertifications.addEventListener("click", (e) => {
   e.preventDefault();
@@ -219,8 +231,11 @@ backToCertifications.addEventListener("click", (e) => {
 });
 //
 navigateToSkills.addEventListener("click", (e) => {
+  const valid= formValidator.validateLanguage(this);
   e.preventDefault();
+  if(valid){
   Showskills();
+  }
 });
 BackToLanguages.addEventListener("click", (e) => {
   e.preventDefault();
@@ -229,7 +244,9 @@ BackToLanguages.addEventListener("click", (e) => {
 
 // finish button
 confirmInformations.addEventListener("click", (e) => {
+  const valid= formValidator.validateSkills(this);
   e.preventDefault();
+  if(valid){
   storepersonalInfo();
   storeWorkExperience();
   storeEducation();
@@ -239,6 +256,7 @@ confirmInformations.addEventListener("click", (e) => {
   showToast();
   skills.classList.add("hidden");
   navigateToDownload.classList.remove("hidden");
+  }
   console.log(userData);
 });
 

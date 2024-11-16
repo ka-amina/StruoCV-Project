@@ -326,10 +326,7 @@
                     id="job-title"
                     class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                   />
-                  <div
-                    id="job-title-Error"
-                    class="text-error w-96 hidden"
-                  ></div>
+                  <div id="job-title-Error" class="text-error hidden"></div>
                 </div>
               </div>
               <!-- Time Period -->
@@ -444,10 +441,7 @@
                   class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
                   style="min-height: 50px"
                 ></div>
-                <div
-                  id="job-description-Error"
-                  class="text-error w-96 hidden"
-                ></div>
+                <div id="job-description-Error" class="text-error hidden"></div>
               </div>
             </div>
           </div>
@@ -573,6 +567,18 @@
                   />
                 </div>
               </div>
+              <div class="flex justify-around">
+                <div
+                  id="Institution-name-Error"
+                  class="text-error hidden w-28 mr-auto"
+                ></div>
+                <div id="field-of-study-Error" class="text-error hidden w-32 mr-12"></div>
+                <div
+                  id="Institution-degree-Error"
+                  class="text-error hidden w-32 ml-12"
+                ></div>
+              </div>
+
               <!-- Time Period -->
               <label for="timePeriod">Time Period</label>
               <div class="mt-4 md:flex md:justify-around">
@@ -683,6 +689,10 @@
                   id="study-description"
                   class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
                   style="min-height: 50px"
+                ></div>
+                <div
+                  id="study-description-Error"
+                  class="text-error hidden"
                 ></div>
               </div>
             </div>
@@ -795,6 +805,7 @@
                 id="certificat-name"
                 class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
               />
+              <div id="certificat-name-Error" class="text-error hidden"></div>
             </div>
             <!-- Time Period -->
             <label for="timePeriod">Time Period</label>
@@ -851,6 +862,7 @@
                   <span class="text-white">+</span>
                 </button>
               </div>
+              <div id="certificat-url-Error" class="text-error hidden"></div>
             </div>
           </div>
           <div class="flex justify-around">
@@ -954,6 +966,7 @@
               <option>Espagnol</option>
               <option>Arabic</option>
             </select>
+            <div id="add-language-Error" class="text-error hidden w-72"></div>
             <label class="block mb-2 text-sm font-medium text-gray-900"
               >Level</label
             >
@@ -968,7 +981,9 @@
                   <option>Intermediate</option>
                   <option>Proficiency</option>
                 </select>
+                
               </div>
+              <div id="add-level-Error" class="text-error hidden w-72"></div>
             </div>
             <div class="languages-template hidden">
               <label class="block mb-2 text-sm font-medium text-gray-900"
@@ -1122,6 +1137,7 @@
                 </button>
               </div>
             </div>
+            <div id="soft-skills-Error" class="text-error hidden w-72"></div>
             <div id="AddhardSkill">
               <label for="hard-skills">hard skills</label>
               <div class="flex md:h-10">
@@ -1138,6 +1154,7 @@
                 </button>
               </div>
             </div>
+            <div id="hard-skills-Error" class="text-error hidden w-72"></div>
           </div>
           <div class="flex justify-around">
             <button
@@ -1246,7 +1263,14 @@
               height="300"
               class="cursor-pointer"
             />
-            <img id="DisplayCv2" src="./img/templates/cv3.png" alt="" width="250" height="150" class="cursor-pointer">
+            <img
+              id="DisplayCv2"
+              src="./img/templates/cv3.png"
+              alt=""
+              width="250"
+              height="150"
+              class="cursor-pointer"
+            />
           </div>
         </form>
       </div>
@@ -1348,7 +1372,7 @@
               </div>
               <div>
                 <h3 class="text-nu-blue-500 font-semibold text-md">
-                 Compétences techniques
+                  Compétences techniques
                 </h3>
                 <ul class="displayHardSkills"></ul>
               </div>
@@ -1356,7 +1380,10 @@
           </div>
         </div>
       </div>
-      <button class="mt-4 bg-primary p-2 rounded-md text-white" id="DownloadFirstResume">
+      <button
+        class="mt-4 bg-primary p-2 rounded-md text-white"
+        id="DownloadFirstResume"
+      >
         Download
       </button>
     </div>
@@ -1376,8 +1403,7 @@
               />
             </div>
             <div class="flex flex-col mr-8">
-              <span class=" text-2xl text-brown displayPosition">
-              </span>
+              <span class="text-2xl text-brown displayPosition"> </span>
               <span class="fullNameDisplay text-6xl w-60 mt-0.5"></span>
             </div>
             <div class="mr-9">
@@ -1426,17 +1452,21 @@
           <div class="flex px-12 gap-8 mt-7">
             <!-- rightSide -->
             <div class="w-1/2">
-              <div class="text-xl text-brown font-serif">Expériences professionnelle</div>
-              <div class="mt-4 flex flex-col" id="displayExperiences1">
+              <div class="text-xl text-brown font-serif">
+                Expériences professionnelle
               </div>
+              <div class="mt-4 flex flex-col" id="displayExperiences1"></div>
               <div class="mt-3">
-                <div class="text-xl text-brown font-serif">Compétences techniques</div>
-                <ul class="displayHardSkills mt-4 "></ul>
-              </div>
-              <div class="mt-3">
-                <div class="text-xl text-brown font-serif ">Langue</div>
-                <div class="flex flex-col mt-4 leading-5 displayLanguages ">
+                <div class="text-xl text-brown font-serif">
+                  Compétences techniques
                 </div>
+                <ul class="displayHardSkills mt-4"></ul>
+              </div>
+              <div class="mt-3">
+                <div class="text-xl text-brown font-serif">Langue</div>
+                <div
+                  class="flex flex-col mt-4 leading-5 displayLanguages"
+                ></div>
               </div>
             </div>
 
@@ -1446,19 +1476,24 @@
               <div class="mt-4 flex flex-col" id="displayEducationInfo2"></div>
               <div class="mt-3">
                 <div class="text-xl text-brown font-serif">Certifications</div>
-                <div class="flex flex-col mt-4 leading-5 ">
+                <div class="flex flex-col mt-4 leading-5">
                   <ul class="certificates-list"></ul>
                 </div>
               </div>
               <div class="mt-3">
-                <div class="text-xl text-brown font-serif">Compétences interpersonnelles</div>
+                <div class="text-xl text-brown font-serif">
+                  Compétences interpersonnelles
+                </div>
                 <ul class="displaySoftSkills leading-5 mt-4"></ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button class="ml-16 mt-4 bg-primary p-2 rounded-md text-white" id="DownloadsecondResume">
+      <button
+        class="ml-16 mt-4 bg-primary p-2 rounded-md text-white"
+        id="DownloadsecondResume"
+      >
         Download
       </button>
     </div>
