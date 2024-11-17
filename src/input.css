@@ -24,4 +24,14 @@
 .error {
   border: 2px solid red; 
 }
+ul {
+  list-style-type: inherit;
+}
+ol {
+  list-style-type: decimal;
+}
 
+ul,ol{
+  margin: 0;
+  padding: 0;
+}

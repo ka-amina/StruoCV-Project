@@ -633,6 +633,10 @@ function storepersonalInfo() {
   const displayPhone = document.querySelectorAll(".displayPhone");
   const linkedin = document.querySelectorAll(".displayLinkedIn");
   const github = document.querySelectorAll(".displayGithub");
+  const displayAbout = document.querySelectorAll(".displayAbout");
+  displayAbout.forEach((element) => {
+    element.innerHTML = personalInfo.about;
+  });
 
   fullNameDisplay.forEach(
     (element) => (element.textContent = personalInfo.fullName)
@@ -648,11 +652,11 @@ function storepersonalInfo() {
 
 
   personalInfo.socialMedia.forEach((media) => {
-    if (media.addMediaInput === "LinkedIn") {
+    if (media.addMediaInput === "Linkedin") {
       linkedin.forEach((element) => {
         element.textContent = media.mediaUrl;
       });
-    } else if (media.addMediaInput === "GitHub") {
+    } else if (media.addMediaInput === "github") {
       github.forEach((element) => {
         element.textContent = media.mediaUrl;
       });
@@ -673,7 +677,6 @@ function storeWorkExperience() {
     const jobYearTo = container.querySelector("#job-year-to").value;
     const currentlyWork =
       container.querySelector("#check-currently-work")?.checked || false;
-    const workDescription = container.querySelector("#job-description").value;
 
     const workExp = {
       companyName,
@@ -683,7 +686,7 @@ function storeWorkExperience() {
       jobMonthTo,
       jobYearTo,
       currentlyWork,
-      workDescription,
+      workDescription:workDescription.root.innerHTML,
     };
 
     userData.Work.push(workExp);
@@ -744,8 +747,6 @@ function storeEducation() {
     const educationYearTo = container.querySelector("#education-year-to").value;
     const currentlyStudy =
       container.querySelector("#check-currently-study")?.checked || false;
-    const studyDescription =
-      container.querySelector("#study-description").value;
     const workExp = {
       institutName,
       field,
@@ -755,7 +756,7 @@ function storeEducation() {
       educationMonthTo,
       educationYearTo,
       currentlyStudy,
-      studyDescription,
+      studyDescription: studyDescription.root.innerHTML,
     };
     userData.school.push(workExp);
 
@@ -773,7 +774,7 @@ if (educationresume1){
           <span id="educationsyearto">${educationYearTo}</span>
         </div>
         <div id="diaplayeducationdesc">
-          ${studyDescription}
+          ${workExp.studyDescription}
         </div>
       </div>
     `;
