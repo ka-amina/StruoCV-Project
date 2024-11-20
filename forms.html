@@ -131,7 +131,8 @@
                   type="text"
                   id="user-name"
                   class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                />
+                maxlength="30"
+                  />
                 <div id="user-name-Error" class="text-error w-96 hidden"></div>
               </div>
               <div class="mt-4">
@@ -140,7 +141,7 @@
                   type="email"
                   id="user-email"
                   class="bg-secondary border text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 border-gray-300"
-                />
+                maxlength="100"/>
                 <span id="user-email-Error" class="text-error hidden"></span>
               </div>
               <!-- phone Number -->
@@ -165,7 +166,8 @@
                     type="text"
                     id="user-Phone"
                     class="ml-5 bg-secondary text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-60 p-2.5 md:w-72 h-10 border border-gray-300"
-                  />
+                  maxlength="15"
+                    />
                 </div>
                 <div
                   id="user-Phone-Error"
@@ -179,16 +181,13 @@
                   type="text"
                   id="Job-title"
                   class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                  maxlength="50"
                 />
                 <div id="Job-title-Error" class="text-error w-96 hidden"></div>
               </div>
               <!-- About you -->
               <div class="mt-4">
-                <label
-                  for="message"
-                  class="block mb-2 text-sm font-medium text-gray-900"
-                  >About</label
-                >
+                <label for="message">About</label>
                 <div
                   id="about-message"
                   class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-b-lg border border-gray-300 focus:ring-primary focus:border-primary"
@@ -198,7 +197,7 @@
               <!-- media -->
               <div class="mt-8" id="mediaInputs">
                 <label for="base-input" class="mb-2">Media</label>
-                <div class="social-media-template hidden">
+                <div class="social-media-template ">
                   <label class="block mb-2 text-sm font-medium text-gray-900"
                     >Name</label
                   >
@@ -209,7 +208,6 @@
                     <option selected>Choose</option>
                     <option>Linkedin</option>
                     <option>github</option>
-                    <option>other</option>
                   </select>
                   <label for="url">Url</label>
                   <div class="flex md:h-10">
@@ -572,7 +570,10 @@
                   id="Institution-name-Error"
                   class="text-error hidden w-28 mr-auto"
                 ></div>
-                <div id="field-of-study-Error" class="text-error hidden w-32 mr-12"></div>
+                <div
+                  id="field-of-study-Error"
+                  class="text-error hidden w-32 mr-12"
+                ></div>
                 <div
                   id="Institution-degree-Error"
                   class="text-error hidden w-32 ml-12"
@@ -855,14 +856,16 @@
                   id="certificat-url"
                   class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
                 />
-                <button
-                  id="AddNewCertification"
-                  class="p-2 bg-primary ml-4 text-3xl rounded-lg font-semibold flex justify-center items-center"
-                >
-                  <span class="text-white">+</span>
-                </button>
               </div>
               <div id="certificat-url-Error" class="text-error hidden"></div>
+            </div>
+            <div class="block md:flex md:justify-center">
+              <button
+                id="AddNewCertification"
+                class="w-full md:w-input border outline-dashed outline-primary rounded-lg mt-3 mb-6"
+              >
+                Add New Certificat
+              </button>
             </div>
           </div>
           <div class="flex justify-around">
@@ -950,42 +953,8 @@
             </div>
           </div>
 
-          <div class="md:grid md:justify-center md:mt-6" id="languageInputs">
-            <label for="">languages</label>
-            <label class="block mb-2 text-sm font-medium text-gray-900"
-              >Select language</label
-            >
-            <select
-              id="add-language"
-              class="bg-secondary border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-            >
-              <option selected>Choose</option>
-              <option>English</option>
-              <option>Arabic</option>
-              <option>Frensh</option>
-              <option>Espagnol</option>
-              <option>Arabic</option>
-            </select>
-            <div id="add-language-Error" class="text-error hidden w-72"></div>
-            <label class="block mb-2 text-sm font-medium text-gray-900"
-              >Level</label
-            >
-            <div id="AddLanguage">
-              <div class="flex md:h-10">
-                <select
-                  id="add-level"
-                  class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-72 p-2.5"
-                >
-                  <option selected>Choose</option>
-                  <option>Pre Intermediate</option>
-                  <option>Intermediate</option>
-                  <option>Proficiency</option>
-                </select>
-                
-              </div>
-              <div id="add-level-Error" class="text-error hidden w-72"></div>
-            </div>
-            <div class="languages-template hidden">
+          <div class="md:grid md:justify-center md:mt-6 " id="languageInputs">
+            <div class="languages-template">
               <label class="block mb-2 text-sm font-medium text-gray-900"
                 >Select language</label
               >
@@ -1000,6 +969,7 @@
                 <option>Espagnol</option>
                 <option>Arabic</option>
               </select>
+              <div id="add-language-Error" class="text-error hidden w-72"></div>
               <label class="block mb-2 text-sm font-medium text-gray-900"
                 >Level</label
               >
@@ -1015,6 +985,7 @@
                     <option>Proficiency</option>
                   </select>
                 </div>
+                <div id="add-level-Error" class="text-error hidden w-72"></div>
               </div>
             </div>
           </div>
@@ -1177,7 +1148,7 @@
         id="Download"
         class="hidden h-auto bg-white rounded-lg px-3 mt-7 border border-nu-gray-100 md:w-form"
       >
-        <form action="">
+        <form action="" class="mb-16">
           <div class="flex items-center gap-3 p-3 border-b-2 border-gray-100">
             <img
               src="./icons/Download.svg"
@@ -1254,14 +1225,14 @@
           <div class="flex text-2xl justify-center font-thin">
             <span>Choose Model</span>
           </div>
-          <div class="flex">
+          <div class="mt-20 flex justify-around">
             <img
               id="displayCv1"
               src="./img/templates/cv1.png"
               alt=""
               width="300"
               height="300"
-              class="cursor-pointer"
+              class="cursor-pointer transform hover:scale-110"
             />
             <img
               id="DisplayCv2"
@@ -1269,7 +1240,7 @@
               alt=""
               width="250"
               height="150"
-              class="cursor-pointer"
+              class="cursor-pointer transform hover:scale-110"
             />
           </div>
         </form>
@@ -1280,9 +1251,12 @@
       ></div>
     </div>
     <!-- template of the first cv -->
-    <div id="resume1" class="hidden bg-secondary p-52 h-full">
+    <div id="resume1" class="hidden bg-secondary h-full">
+      <button class="p-2 back-to-modales bg-primary rounded-lg text-white mb-8">
+        Go to Templates
+      </button>
       <div id="firstResume" class="flex bg-white p-7 py-10 space-x-20 mt-7">
-        <div id="right-side">
+        <div id="right-side" class="w-40">
           <h1 class="font-bold text-5xl fullNameDisplay"></h1>
           <div class="text-nu-blue-500 mt-2">
             <span class="font-semibold text-xl displayPosition"></span>
@@ -1344,9 +1318,9 @@
 
         <div
           id="left-side"
-          class="bg-nu-blue-50 p-5 pb-72 border-gray-300 rounded-lg"
+          class="bg-nu-blue-50 p-5 pb-72 border-gray-300 rounded-lg w-2/3"
         >
-          <div class="ml-8">
+          <div class="ml-3 w-full">
             <div id="description" class="mt-8">
               <p class="displayAbout"></p>
             </div>
@@ -1362,33 +1336,40 @@
             <div id="displayEducationInfo"></div>
             <div
               id="displaySkills"
-              class="flex justify-stretch space-x-36 mt-7"
+              class="flex  justify-between mt-7"
             >
               <div>
-                <h3 class="text-nu-blue-500 font-semibold text-md">
+                <h3 class="text-nu-blue-500 font-semibold ">
                   Compétences interpersonnelles
                 </h3>
-                <ul class="displaySoftSkills"></ul>
+                <div class="displaySoftSkills flex flex-col" >
+                
+                </div>
               </div>
               <div>
-                <h3 class="text-nu-blue-500 font-semibold text-md">
+                <h3 class="text-nu-blue-500 font-semibold">
                   Compétences techniques
                 </h3>
-                <ul class="displayHardSkills"></ul>
+                <div class="displayHardSkills flex flex-col ">
+                  
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <button
-        class="mt-4 bg-primary p-2 rounded-md text-white"
+        class="ml-72 mt-4 bg-primary p-2 rounded-md text-white"
         id="DownloadFirstResume"
       >
         Download
       </button>
     </div>
     <!-- template of the second resume -->
-    <div id="resume2" class="hidden bg-secondary p-52 h-full">
+    <div id="resume2" class="hidden bg-secondary h-full">
+      <button class="p-2 back-to-modales bg-primary rounded-lg text-white mb-8">
+        Go to Templates
+      </button>
       <div id="secondResume" class="flex bg-white space-x-20 mt-7 pb-24">
         <div class="relative w-full">
           <div><img src="./img/headerCv1.png" alt="" /></div>
@@ -1403,7 +1384,7 @@
               />
             </div>
             <div class="flex flex-col mr-8">
-              <span class="text-2xl text-brown displayPosition"> </span>
+              <span class="text-2xl text-brown displayPosition w-72"> </span>
               <span class="fullNameDisplay text-6xl w-60 mt-0.5"></span>
             </div>
             <div class="mr-9">
@@ -1460,7 +1441,7 @@
                 <div class="text-xl text-brown font-serif">
                   Compétences techniques
                 </div>
-                <ul class="displayHardSkills mt-4"></ul>
+                <div class="displayHardSkills mt-4 flex flex-col"></div>
               </div>
               <div class="mt-3">
                 <div class="text-xl text-brown font-serif">Langue</div>
@@ -1484,14 +1465,14 @@
                 <div class="text-xl text-brown font-serif">
                   Compétences interpersonnelles
                 </div>
-                <ul class="displaySoftSkills leading-5 mt-4"></ul>
+                <div class="displaySoftSkills leading-5 mt-4 flex flex-col"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <button
-        class="ml-16 mt-4 bg-primary p-2 rounded-md text-white"
+        class="ml-72 mt-4 bg-primary p-2 rounded-md text-white"
         id="DownloadsecondResume"
       >
         Download

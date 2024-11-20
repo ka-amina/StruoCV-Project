@@ -68,12 +68,12 @@ var jobYearFrom = document.getElementById("job-year-from");
 var jobMonthTo = document.getElementById("job-month-to");
 var jobYearTo = document.getElementById("job-year-to");
 var currentlyWork = document.getElementById("check-currently-work");
-var workDescription = new Quill("#job-description", {
+new Quill("#job-description", {
   theme: "snow",
   placeholder: "Write about your position...",
 });
 // education inputs
-var studyDescription = new Quill("#study-description", {
+new Quill("#study-description", {
   theme: "snow",
   placeholder: "Write about your career...",
 });
@@ -234,7 +234,7 @@ navigateToSkills.addEventListener("click", (e) => {
   const valid= formValidator.validateLanguage(this);
   e.preventDefault();
   if(valid){
-  Showskills();
+    Showskills();
   }
 });
 BackToLanguages.addEventListener("click", (e) => {
@@ -266,14 +266,8 @@ addNewSocialMedia.addEventListener("click", (e) => {
   e.preventDefault();
   const socialMediaTemplate = document.querySelector(".social-media-template");
   const clonedSocialMedia = socialMediaTemplate.cloneNode(true);
-  clonedSocialMedia.classList.remove("hidden");
-  const socialMediaIndex =
-    document.querySelectorAll(".social-media").length + 1;
-  clonedSocialMedia.dataset.index = socialMediaIndex;
-  clonedSocialMedia.querySelector(`social-media-name-${socialMediaIndex}`);
-  clonedSocialMedia.querySelector(
-    ".social-media-url"
-  ).id = `social-media-url-${socialMediaIndex}`;
+  const urlInput = clonedSocialMedia.querySelector(".social-media-url");
+  urlInput.value = ""; 
   AddMedia.insertBefore(clonedSocialMedia, addNewSocialMedia);
 });
 
@@ -365,199 +359,326 @@ AddNewHardSkill.addEventListener("click", (e) => {
   AddhardSkill.appendChild(addHardInput);
 });
 
+let expcounter = 0;
 AddNewWorkExperience.addEventListener("click", (e) => {
   e.preventDefault();
+  const uniqueId = `job-description-${expcounter}`;
   const work = document.createElement("div");
-  work.innerHTML = `<div class="md:grid md:justify-center md:mt-16">
-            <div class="md:w-input">
-              <div class="mt-8">
-                <label for="base-input">Company Name</label>
-                <input
-                  type="text"
-                  id="company-name"
-                  class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                />
-              </div>
-              <div class="mt-4">
-                <label for="job">Job Title</label>
-                <input
-                  type="text"
-                  id="job-title"
-                  class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                />
-              </div>
-            </div>
-            <!-- Time Period -->
-
-            <label for="timePeriod">Time Period</label>
-            <div class="mt-4 md:flex md:justify-around">
-              <label for="" class="block lg:hidden">From</label>
-              <div
-                class="flex md:justify-normal justify-between md:h-10 md:gap-6"
-              >
-                <input
-                  type="text"
-                  id="job-month-from"
-                  class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                  placeholder="month"
-                />
-                <input
-                  type="Number"
-                  id="job-year-from"
-                  class="ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                  placeholder="year"
-                />
-              </div>
-              <label for="" class="block lg:hidden">To</label>
-              <span class="mt-2 hidden md:block">-</span>
-              <div>
-                <div class="flex justify-between md:justify-normal md:gap-6">
+  work.innerHTML = `<div class="md:grid md:justify-center md:mt-14">
+              <div class="md:w-input">
+                <div class="mt-8">
+                  <label for="base-input">Company Name</label>
                   <input
                     type="text"
-                    id="job-month-to"
-                    class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                    placeholder="month"
+                    id="company-name"
+                    class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
                   />
+                  <div
+                    id="company-name-Error"
+                    class="text-error w-96 hidden"
+                  ></div>
+                </div>
+                <div class="mt-4">
+                  <label for="job">Job Title</label>
                   <input
-                    type="Number"
-                    id="job-year-to"
-                    class="ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                    type="text"
+                    id="job-title"
+                    class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
+                  />
+                  <div id="job-title-Error" class="text-error hidden"></div>
+                </div>
+              </div>
+              <!-- Time Period -->
+
+              <label for="timePeriod">Time Period</label>
+              <div class="mt-4 md:flex md:justify-around">
+                <label for="" class="block lg:hidden">From</label>
+                <div
+                  class="flex md:justify-normal justify-between md:h-10 md:gap-6"
+                >
+                  <select
+                    id="job-month-from"
+                    class="bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                  >
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="job-year-from"
+                    class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                     placeholder="year"
                   />
                 </div>
-                <div class="inline-flex items-center ml-3.5 mt-3">
-                    <label class="flex items-center cursor-pointer relative" for="check-currently-work">
-                      <input type="checkbox"
+                <label for="" class="block lg:hidden">To</label>
+                <span class="mt-2 hidden md:block">-</span>
+                <div>
+                  <div class="flex justify-between md:justify-normal md:gap-6">
+                    <select
+                      id="job-month-to"
+                      class="bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                    >
+                      <option>month</option>
+                      <option>January</option>
+                      <option>February</option>
+                      <option>March</option>
+                      <option>April</option>
+                      <option>May</option>
+                      <option>June</option>
+                      <option>July</option>
+                      <option>August</option>
+                      <option>September</option>
+                      <option>October</option>
+                      <option>November</option>
+                      <option>December</option>
+                    </select>
+                    <input
+                      type="Number"
+                      id="job-year-to"
+                      class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                      placeholder="year"
+                    />
+                  </div>
+                  <div class="inline-flex items-center ml-3.5 mt-3">
+                    <label
+                      class="flex items-center cursor-pointer relative"
+                      for="check-currently-work"
+                    >
+                      <input
+                        type="checkbox"
                         class="peer h-5 w-5 cursor-pointer appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-primary checked:border-nu-gray-100"
-                        id="check-currently-work" />
-                      <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
-                          stroke="currentColor" stroke-width="1">
-                          <path fill-rule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clip-rule="evenodd"></path>
+                        id="check-currently-work"
+                      />
+                      <span
+                        class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-3.5 w-3.5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          stroke="currentColor"
+                          stroke-width="1"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
                         </svg>
                       </span>
                     </label>
-                    <label class="cursor-pointer ml-3 text-slate-600 text-sm font-medium" for="check-currently-work">
+                    <label
+                      class="cursor-pointer ml-3 text-slate-600 text-sm font-medium"
+                      for="check-currently-work"
+                    >
                       I currently work here
                     </label>
                   </div>
+                </div>
               </div>
-            </div>
-            <!-- Description -->
-            <div class="mt-4">
-              <label
-                for="message"
-                class="block mb-2 text-sm font-medium text-gray-900"
-                >Description</label
-              >
-              <textarea
-                id="job-description"
-                rows="4"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary"
-                placeholder="Write your thoughts here..."
-              ></textarea>
-            </div>
-          </div>`;
+              <!-- Description -->
+              <div class="mt-4">
+                <label
+                  for="message"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Description</label
+                >
+                <div
+                  id="${uniqueId}"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                  style="min-height: 50px"
+                ></div>
+                <div id="job-description-Error" class="text-error hidden"></div>
+              </div>
+            </div>`;
   addWork.appendChild(work);
+  new Quill(`#${uniqueId}`, {
+    theme: "snow",
+    placeholder: "Write about your position...",
+  });
+  expcounter++;
 });
+let edcounter= 0;
 AddNewEducation.addEventListener("click", (e) => {
   e.preventDefault();
+  const uniqueId = `study-description-${edcounter}`
   const addEd = document.createElement("div");
-  addEd.innerHTML = `<div class="md:grid md:justify-center md:mt-16">
-  <div class="block md:flex md:mt-4 md:justify-between">
-    <div class="mt-8 md:mt-0">
-      <label for="Institution">Institution Name</label>
-      <input
-        type="text"
-        id="Institution-name"
-        class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 md:w-36"
-      />
-    </div>
-    <div class="mt-4 md:mt-0">
-      <label for="study">Field of study</label>
-      <input
-        type="text"
-        id="field-of-study"
-        class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 md:w-36"
-      />
-    </div>
-    <div class="mt-4 md:mt-0">
-      <label for="degree">Degree</label>
-      <input
-        type="text"
-        id="Institution-degree"
-        class="bg-secondary border border-none text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 md:w-36"
-      />
-    </div>
-  </div>
-  <label for="timePeriod">Time Period</label>
-  <div class="mt-4 md:flex md:justify-around">
-    <label for="" class="block lg:hidden">From</label>
-    <div class="flex md:justify-normal justify-between md:h-10 md:gap-6">
-      <input
-        type="text"
-        id="education-month-from"
-        class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-        placeholder="month"
-      />
-      <input
-        type="Number"
-        id="education-year-from"
-        class="ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-        placeholder="year"
-      />
-    </div>
-    <label for="" class="block lg:hidden">To</label>
-    <span class="mt-2 hidden md:block md:px-2">-</span>
-    <div>
-      <div class="flex justify-between md:justify-normal md:gap-6">
-        <input
-          type="text"
-          id="education-month-to"
-          class="bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-          placeholder="month"
-        />
-        <input
-          type="Number"
-          id="education-year-to"
-          class="ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-          placeholder="year"
-        />
-      </div>
-      <div class="inline-flex items-center ml-3.5 mt-3">
-        <label class="flex items-center cursor-pointer relative" for="check-currently-study">
-          <input
-            type="checkbox"
-            class="peer h-5 w-5 cursor-pointer appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-primary checked:border-nu-gray-100"
-            id="check-currently-study"
-          />
-          <span class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
-              stroke="currentColor" stroke-width="1">
-              <path fill-rule="evenodd"
-              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-              clip-rule="evenodd"></path>
-            </svg>
-          </span>
-        </label>
-        <label class="cursor-pointer ml-3 text-slate-600 text-sm font-medium" for="check-currently-study}">I currently study here</label>
-      </div>
-    </div>
-  </div>
-  <div class="mt-4">
-    <label for="study-description" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
-    <textarea
-      id="study-description"
-      rows="4"
-      class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-none focus:ring-primary focus:border-primary"
-      placeholder="Write your thoughts here..."
-    ></textarea>
-  </div>
-</div>`;
+  addEd.innerHTML = `<div class="md:grid md:justify-center mt-14">
+              <div class="block md:flex md:mt-4 md:justify-between">
+                <div class="mt-8 md:mt-0">
+                  <label for="Institution">Institution Name</label>
+                  <input
+                    type="text"
+                    id="Institution-name"
+                    class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 md:w-36"
+                  />
+                </div>
+                <div class="mt-4 md:mt-0">
+                  <label for="study">Field of study</label>
+                  <input
+                    type="text"
+                    id="field-of-study"
+                    class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 md:w-36"
+                  />
+                </div>
+                <div class="mt-4 md:mt-0">
+                  <label for="degree">Degree</label>
+                  <input
+                    type="text"
+                    id="Institution-degree"
+                    class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 md:w-36"
+                  />
+                </div>
+              </div>
+              <div class="flex justify-around">
+                <div
+                  id="Institution-name-Error"
+                  class="text-error hidden w-28 mr-auto"
+                ></div>
+                <div
+                  id="field-of-study-Error"
+                  class="text-error hidden w-32 mr-12"
+                ></div>
+                <div
+                  id="Institution-degree-Error"
+                  class="text-error hidden w-32 ml-12"
+                ></div>
+              </div>
+
+              <!-- Time Period -->
+              <label for="timePeriod">Time Period</label>
+              <div class="mt-4 md:flex md:justify-around">
+                <label for="" class="block lg:hidden">From</label>
+                <div class="flex md:justify-normal justify-between md:h-10 md:gap-6">
+                  <select
+                    id="education-month-from"
+                    class="bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                  >
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                  <input
+                    type="Number"
+                    id="education-year-from"
+                    class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                    placeholder="year"
+                  />
+                </div>
+                <label for="" class="block lg:hidden">To</label>
+                <span class="mt-2 hidden md:block md:px-2">-</span>
+                <div>
+                  <div class="flex justify-between md:justify-normal md:gap-6">
+                    <select
+                      id="education-month-to"
+                      class="bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                    >
+                      <option>month</option>
+                      <option>January</option>
+                      <option>February</option>
+                      <option>March</option>
+                      <option>April</option>
+                      <option>May</option>
+                      <option>June</option>
+                      <option>July</option>
+                      <option>August</option>
+                      <option>September</option>
+                      <option>October</option>
+                      <option>November</option>
+                      <option>December</option>
+                    </select>
+                    <input
+                      type="Number"
+                      id="education-year-to"
+                      class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                      placeholder="year"
+                    />
+                  </div>
+                  <div class="inline-flex items-center ml-3.5 mt-3">
+                    <label
+                      class="flex items-center cursor-pointer relative"
+                      for="check-currently-study"
+                    >
+                      <input
+                        type="checkbox"
+                        class="peer h-5 w-5 cursor-pointer appearance-none rounded shadow hover:shadow-md border border-slate-300 checked:bg-primary checked:border-nu-gray-100"
+                        id="check-currently-study"
+                      />
+                      <span
+                        class="absolute text-white opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-3.5 w-3.5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          stroke="currentColor"
+                          stroke-width="1"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </span>
+                    </label>
+                    <label
+                      class="cursor-pointer ml-3 text-slate-600 text-sm font-medium"
+                      for="check-currently-study"
+                    >
+                      I currently study here
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- Description -->
+              <div class="mt-4">
+                <label
+                  for="message"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Description</label
+                >
+                <div
+                  id="${uniqueId}"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                  style="min-height: 50px"
+                ></div>
+                <div
+                  id="study-description-Error"
+                  class="text-error hidden"
+                ></div>
+              </div>
+            </div>`;
 
   addEducation.appendChild(addEd);
+  new Quill(`#${uniqueId}`, {
+    theme: "snow",
+    placeholder: "Write about your position...",
+  });
+  edcounter++;
 });
 
 AddNewLanguage.addEventListener("click", (e) => {
@@ -594,8 +715,9 @@ window.displayImg = function (event) {
 };
 
 //store personal infos
+let personalInfo={}
 function storepersonalInfo() {
-  const personalInfo = {
+  personalInfo = {
     profileImage: profileImage.files[0],
     fullName: fullName.value,
     email: email.value,
@@ -678,6 +800,9 @@ function storeWorkExperience() {
     const currentlyWork =
       container.querySelector("#check-currently-work")?.checked || false;
 
+      const descriptionDiv = container.querySelector(`[id^="job-description"]`);
+      const workDescription = Quill.find(descriptionDiv).root.innerHTML
+
     const workExp = {
       companyName,
       jobTitle,
@@ -686,7 +811,7 @@ function storeWorkExperience() {
       jobMonthTo,
       jobYearTo,
       currentlyWork,
-      workDescription:workDescription.root.innerHTML,
+      workDescription,
     };
 
     userData.Work.push(workExp);
@@ -694,37 +819,40 @@ function storeWorkExperience() {
 
   console.log(userData.Work);
 
-  const displayWorkexp=document.querySelector("#displayExperiences")
-  const displayWorkexp1=document.querySelector("#displayExperiences1")
+  const displayWorkexp = document.querySelector("#displayExperiences");
+  const displayWorkexp1 = document.querySelector("#displayExperiences1");
+  if (displayWorkexp) displayWorkexp.innerHTML = "";
+  if (displayWorkexp1) displayWorkexp1.innerHTML = "";
+
   userData.Work.forEach((work) => {
-    if(displayWorkexp){
-    const experienceInfoHtml = `
-      <div>
-        <h3 class="font-bold text-xl mt-2 mb-1">${work.jobTitle}</h3>
-        <div class="text-nu-blue-500 font-semibold text-md mb-2">
-          <span>${work.companyName}</span>,  
-          <span>${work.jobMonthFrom}</span>  
-          <span>${work.jobYearFrom}</span> - 
-          <span>${work.jobMonthTo}</span> 
-          <span>${work.jobYearTo}</span>
-        </div>
+    if (displayWorkexp) {
+      const experienceInfoHtml = `
         <div>
-          ${work.workDescription}
+          <h3 class="font-bold text-xl mt-2 mb-1">${work.jobTitle}</h3>
+          <div class="text-nu-blue-500 font-semibold text-md mb-2">
+            <span>${work.companyName}</span>,  
+            <span>${work.jobMonthFrom}</span>  
+            <span>${work.jobYearFrom}</span> - 
+            <span>${work.jobMonthTo}</span> 
+            <span>${work.jobYearTo}</span>
+          </div>
+          <div>
+            ${work.workDescription}
+          </div>
         </div>
-      </div>
-    `;
-    displayWorkexp.innerHTML +=experienceInfoHtml;
+      `;
+      displayWorkexp.innerHTML += experienceInfoHtml;
     }
-    if(displayWorkexp1){
+
+    if (displayWorkexp1) {
       const experienceInfoHtml1 = `
-      <span class="text-xl font-serif">${work.jobTitle}</span>
-                <span class="font-serif text-nu-gray-100 text-md">${work.companyName}, ${work.jobMonthFrom} ${work.jobYearFrom} - ${work.jobMonthTo} ${work.jobYearTo}</span>
-                <p class="leading-5 mt-2">
-                ${work.workDescription}
-                </p>`;
-      displayWorkexp1.innerHTML +=experienceInfoHtml1;
+        <span class="text-xl font-serif">${work.jobTitle}</span>
+        <span class="font-serif text-nu-gray-100 text-md">${work.companyName}, ${work.jobMonthFrom} ${work.jobYearFrom} - ${work.jobMonthTo} ${work.jobYearTo}</span>
+        <p class="leading-5 mt-2">
+          ${work.workDescription}
+        </p>`;
+      displayWorkexp1.innerHTML += experienceInfoHtml1;
     }
-      
   });
 }
 
@@ -747,7 +875,10 @@ function storeEducation() {
     const educationYearTo = container.querySelector("#education-year-to").value;
     const currentlyStudy =
       container.querySelector("#check-currently-study")?.checked || false;
-    const workExp = {
+      const descriptionDiv = container.querySelector(`[id^="study-description"]`);
+      const studyDescription= Quill.find(descriptionDiv).root.innerHTML
+
+    const study = {
       institutName,
       field,
       degree,
@@ -756,9 +887,9 @@ function storeEducation() {
       educationMonthTo,
       educationYearTo,
       currentlyStudy,
-      studyDescription: studyDescription.root.innerHTML,
+      studyDescription,
     };
-    userData.school.push(workExp);
+    userData.school.push(study);
 
     const educationresume1=document.querySelector("#displayEducationInfo");
     const educationresume2=document.querySelector("#displayEducationInfo2");
@@ -774,7 +905,7 @@ if (educationresume1){
           <span id="educationsyearto">${educationYearTo}</span>
         </div>
         <div id="diaplayeducationdesc">
-          ${workExp.studyDescription}
+          ${studyDescription}
         </div>
       </div>
     `;
@@ -911,18 +1042,18 @@ function storeSkills() {
   displaySoftSkills.forEach((softSkillContainer) => {
     softSkillContainer.innerHTML = "";
     userData.skill.softSkills.forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item.softSkill;
-      softSkillContainer.appendChild(li);
+      const span = document.createElement("span");
+      span.textContent = item.softSkill;
+      softSkillContainer.appendChild(span);
     });
   });
 
   displayHardSkills.forEach((hardSkillContainer) => {
     hardSkillContainer.innerHTML = "";
     userData.skill.hardSkills.forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item.hardSkill;
-      hardSkillContainer.appendChild(li);
+      const span = document.createElement("span");
+      span.textContent = item.hardSkill;
+      hardSkillContainer.appendChild(span);
     });
   });
 }
@@ -932,7 +1063,8 @@ function storeSkills() {
 const DownloadFirstResume = document.getElementById("DownloadFirstResume");
 const firstResume = document.getElementById("firstResume");
 DownloadFirstResume.addEventListener("click", async function () {
-  const filename = "my-cv.pdf";
+  const fromattedFullName= personalInfo.fullName.replace(/\s+/g,'_')
+  const filename = `${fromattedFullName}_Resume`;
 
   const options = {
     margin: 0,
@@ -951,7 +1083,8 @@ DownloadFirstResume.addEventListener("click", async function () {
 const DownloadsecondResume = document.getElementById("DownloadsecondResume");
 const secondResume = document.getElementById("secondResume");
 DownloadsecondResume.addEventListener("click", async function () {
-  const filename = "my-cv.pdf";
+  const fromattedFullName= personalInfo.fullName.replace(/\s+/g,'_')
+  const filename = `${fromattedFullName}_Resume`;
 
   const options = {
     margin: 0,
@@ -984,3 +1117,15 @@ display2ndResume.addEventListener("click" , (e)=>{
   resume2.classList.remove("hidden")
 
 })
+
+// back to models
+const backButtons = document.querySelectorAll(".back-to-modales");
+
+backButtons.forEach((Buttoon) => {
+  Buttoon.addEventListener("click", (e) => {
+    e.preventDefault();
+    resume1.classList.add("hidden");
+    resume2.classList.add("hidden");
+    navigateToDownload.classList.remove("hidden");
+  });
+});

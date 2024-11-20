@@ -35,3 +35,14 @@ ul,ol{
   margin: 0;
   padding: 0;
 }
+#secondResume p {
+  page-break-inside: avoid; /* Avoid splitting paragraphs across pages */
+  margin-bottom: 10px;
+}
+#secondResume h1, #secondResume h2, .section {
+  page-break-before: always;  /* Ensure these elements start on a new page */
+  margin-top: 20px;
+}
+#secondResume table, .content-block {
+  page-break-after: always;
+}
