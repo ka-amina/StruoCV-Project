@@ -13,10 +13,10 @@
       *{border: 1px solid red}
     </style> -->
   </head>
-  <body class="">
+  <body class="bg-secondary">
     <header>
       <div class="w-full">
-        <nav>
+        <nav class="bg-white">
           <div class="w-full">
             <div
               class="flex justify-between items-center py-3 pl-3 border-b-2 border-nu-gray-50 md:pl-12"
@@ -38,7 +38,7 @@
       </div>
     </header>
 
-    <div class="block md:grid md:justify-center p-4 bg-secondary">
+    <div class="block md:grid md:justify-center p-4">
       <!-- personal informations -->
       <div
         id="personal-informations"
@@ -131,8 +131,8 @@
                   type="text"
                   id="user-name"
                   class="bg-secondary border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5"
-                maxlength="30"
-                  />
+                  maxlength="30"
+                />
                 <div id="user-name-Error" class="text-error w-96 hidden"></div>
               </div>
               <div class="mt-4">
@@ -141,7 +141,8 @@
                   type="email"
                   id="user-email"
                   class="bg-secondary border text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 border-gray-300"
-                maxlength="100"/>
+                  maxlength="100"
+                />
                 <span id="user-email-Error" class="text-error hidden"></span>
               </div>
               <!-- phone Number -->
@@ -166,8 +167,8 @@
                     type="text"
                     id="user-Phone"
                     class="ml-5 bg-secondary text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-60 p-2.5 md:w-72 h-10 border border-gray-300"
-                  maxlength="15"
-                    />
+                    maxlength="15"
+                  />
                 </div>
                 <div
                   id="user-Phone-Error"
@@ -190,14 +191,14 @@
                 <label for="message">About</label>
                 <div
                   id="about-message"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-b-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                  class="block p-2.5 w-[24.25rem] max-h-16 overflow-y-auto text-sm text-gray-900 bg-secondary rounded-b-lg border border-gray-300 focus:ring-primary focus:border-primary"
                   style="min-height: 150px"
                 ></div>
               </div>
               <!-- media -->
               <div class="mt-8" id="mediaInputs">
                 <label for="base-input" class="mb-2">Media</label>
-                <div class="social-media-template ">
+                <div class="social-media-template">
                   <label class="block mb-2 text-sm font-medium text-gray-900"
                     >Name</label
                   >
@@ -358,6 +359,7 @@
                     id="job-year-from"
                     class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                     placeholder="year"
+                    maxlength="4"
                   />
                 </div>
                 <label for="" class="block lg:hidden">To</label>
@@ -383,10 +385,11 @@
                       <option>December</option>
                     </select>
                     <input
-                      type="Number"
+                      type="text"
                       id="job-year-to"
                       class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                       placeholder="year"
+                      maxlength="4"
                     />
                   </div>
                   <div class="inline-flex items-center ml-3.5 mt-3">
@@ -436,7 +439,7 @@
                 >
                 <div
                   id="job-description"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                  class="block p-2.5 w-input overflow-y-auto text-sm text-gray-900 bg-secondary rounded-b-lg border border-gray-300 focus:ring-primary focus:border-primary"
                   style="min-height: 50px"
                 ></div>
                 <div id="job-description-Error" class="text-error hidden"></div>
@@ -606,10 +609,11 @@
                     <option>December</option>
                   </select>
                   <input
-                    type="Number"
+                    type="text"
                     id="education-year-from"
                     class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                     placeholder="year"
+                    maxlength="4"
                   />
                 </div>
                 <label for="" class="block lg:hidden">To</label>
@@ -635,10 +639,11 @@
                       <option>December</option>
                     </select>
                     <input
-                      type="Number"
+                      type="text"
                       id="education-year-to"
                       class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                       placeholder="year"
+                      maxlength="4"
                     />
                   </div>
                   <div class="inline-flex items-center ml-3.5 mt-3">
@@ -688,7 +693,7 @@
                 >
                 <div
                   id="study-description"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                  class="block p-2.5 w-input max-h-32 overflow-y-auto text-sm text-gray-900 bg-secondary rounded-b-lg border border-gray-300 focus:ring-primary focus:border-primary"
                   style="min-height: 50px"
                 ></div>
                 <div
@@ -815,34 +820,60 @@
               <div
                 class="flex md:justify-normal justify-between md:h-10 md:gap-6"
               >
-                <input
-                  type="text"
+                <select
                   id="certificat-month-from"
                   class="bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                  placeholder="month"
-                />
+                >
+                  <option>month</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
                 <input
-                  type="Number"
+                  type="text"
                   id="certificat-year-from"
                   class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                   placeholder="year"
+                  maxlength="4"
                 />
               </div>
               <label for="" class="block lg:hidden">To</label>
               <span class="mt-2 hidden md:block">-</span>
               <div>
                 <div class="flex justify-between md:justify-normal md:gap-6">
-                  <input
-                    type="text"
+                  <select
                     id="certifcat-month-to"
                     class="bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-                    placeholder="month"
-                  />
+                  >
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
                   <input
-                    type="Number"
+                    type="text"
                     id="certificat-year-to"
                     class="ml-5 bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
                     placeholder="year"
+                    maxlength="4"
                   />
                 </div>
               </div>
@@ -953,7 +984,7 @@
             </div>
           </div>
 
-          <div class="md:grid md:justify-center md:mt-6 " id="languageInputs">
+          <div class="md:grid md:justify-center md:mt-6" id="languageInputs">
             <div class="languages-template">
               <label class="block mb-2 text-sm font-medium text-gray-900"
                 >Select language</label
@@ -1225,7 +1256,7 @@
           <div class="flex text-2xl justify-center font-thin">
             <span>Choose Model</span>
           </div>
-          <div class="mt-20 flex justify-around">
+          <div class="mt-20 grid grid-cols-2 px-5 gap-4">
             <img
               id="displayCv1"
               src="./img/templates/cv1.png"
@@ -1237,6 +1268,14 @@
             <img
               id="DisplayCv2"
               src="./img/templates/cv3.png"
+              alt=""
+              width="250"
+              height="150"
+              class="cursor-pointer transform hover:scale-110"
+            />
+            <img
+              id="DisplayCv3"
+              src="./img/templates/cv2.png"
               alt=""
               width="250"
               height="150"
@@ -1334,25 +1373,18 @@
               Education & Learning
             </h2>
             <div id="displayEducationInfo"></div>
-            <div
-              id="displaySkills"
-              class="flex  justify-between mt-7"
-            >
+            <div id="displaySkills" class="flex justify-between mt-7">
               <div>
-                <h3 class="text-nu-blue-500 font-semibold ">
+                <h3 class="text-nu-blue-500 font-semibold">
                   Compétences interpersonnelles
                 </h3>
-                <div class="displaySoftSkills flex flex-col" >
-                
-                </div>
+                <div class="displaySoftSkills flex flex-col"></div>
               </div>
               <div>
                 <h3 class="text-nu-blue-500 font-semibold">
                   Compétences techniques
                 </h3>
-                <div class="displayHardSkills flex flex-col ">
-                  
-                </div>
+                <div class="displayHardSkills flex flex-col"></div>
               </div>
             </div>
           </div>
@@ -1465,7 +1497,9 @@
                 <div class="text-xl text-brown font-serif">
                   Compétences interpersonnelles
                 </div>
-                <div class="displaySoftSkills leading-5 mt-4 flex flex-col"></div>
+                <div
+                  class="displaySoftSkills leading-5 mt-4 flex flex-col"
+                ></div>
               </div>
             </div>
           </div>
@@ -1474,6 +1508,78 @@
       <button
         class="ml-72 mt-4 bg-primary p-2 rounded-md text-white"
         id="DownloadsecondResume"
+      >
+        Download
+      </button>
+    </div>
+    <!-- template of the 3rd resume -->
+    <div id="resume3" class="hidden bg-secondary h-full">
+      <button class="p-2 back-to-modales bg-primary rounded-lg text-white mb-8">
+        Go to Templates
+      </button>
+      <div id="thirdResume" class="bg-white p-7 mt-7">
+        <div class="flex">
+          <div class="mr-8">
+            <div class="fullNameDisplay font-semibold text-3xl"></div>
+            <div class="displayPosition text-xl font-thin"></div>
+          </div>
+          <div class="flex flex-col">
+            <span class="emailDisplay text-sm"></span>
+            <span class="displayPhone text-sm"></span>
+            <span class="displayLinkedIn text-sm"></span>
+            <span class="displayGithub text-sm"></span>
+          </div>
+        </div>
+        <div id="description" class="mt-8 text-sm">
+          <p class="displayAbout"></p>
+        </div>
+        <div>
+          <div class="mt-7 flex">
+            <div>
+              <span class="font-semibold mr-8"
+                >Expériences <br />
+                professionnelles</span
+              >
+            </div>
+            <div id="displayExperiences2"></div>
+          </div>
+        </div>
+        <div>
+          <div class="mt-7 flex">
+            <div>
+              <span class="font-semibold text-md mr-[4.75rem]">Education </span>
+            </div>
+            <div id="displayEducationInfo3"></div>
+          </div>
+        </div>
+        <div class="flex justify-between">
+          <div class="w-80">
+            <span class="font-semibold mr-8"
+              >Compétences interpersonnelles</span
+            >
+            <div
+              class="displaySoftSkills flex flex-col text-sm leading-6"
+            ></div>
+          </div>
+          <div class="w-[17rem]">
+            <span class="font-semibold mr-8">Compétences techniques</span>
+            <div
+              class="displayHardSkills flex flex-col text-sm leading-6"
+            ></div>
+          </div>
+          <div class="w-48">
+            <span class="font-semibold mr-8">certifications</span>
+            <ul class="certificates-list text-sm leading-6"></ul>
+          </div>
+        </div>
+        <div class="mt-7">
+          <h3 class="font-semibold">Langue</h3>
+          <div class="flex flex-col displayLanguages text-sm leading-6"></div>
+        </div>
+      </div>
+      <button
+        class="ml-72 mt-4 bg-primary p-2 rounded-md text-white"
+        id="DownloadResume3"
       >
         Download
       </button>

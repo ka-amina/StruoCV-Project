@@ -294,11 +294,24 @@ AddNewCertification.addEventListener("click", (e) => {
       <div class="mt-4 md:flex md:justify-around">
         <label for="" class="block lg:hidden">From</label>
         <div class="flex md:justify-normal justify-between md:h-10 md:gap-6">
-          <input
-            type="text"
-            class="dynamic-certificat-month-from bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-            placeholder="Month"
-          />
+          <select
+                  id="certificat-month-from"
+                  class="dynamic-certificat-month-from bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                >
+                  <option>month</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
           <input
             type="Number"
             class="dynamic-certificat-year-from ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
@@ -309,11 +322,23 @@ AddNewCertification.addEventListener("click", (e) => {
         <span class="mt-2 hidden md:block">-</span>
         <div>
           <div class="flex justify-between md:justify-normal md:gap-6">
-            <input
-              type="text"
-              class="dynamic-certificat-month-to bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
-              placeholder="Month"
-            />
+            <select
+                  class="dynamic-certificat-month-to bg-secondary border border-gray-300 text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
+                >
+                  <option>month</option>
+                  <option>January</option>
+                  <option>February</option>
+                  <option>March</option>
+                  <option>April</option>
+                  <option>May</option>
+                  <option>June</option>
+                  <option>July</option>
+                  <option>August</option>
+                  <option>September</option>
+                  <option>October</option>
+                  <option>November</option>
+                  <option>December</option>
+                </select>
             <input
               type="Number"
               class="dynamic-certificat-year-to ml-5 bg-secondary border-none text-black text-sm rounded-lg focus:ring-primary focus:border-primary block w-36 md:w-28 p-2.5"
@@ -497,7 +522,7 @@ AddNewWorkExperience.addEventListener("click", (e) => {
                 >
                 <div
                   id="${uniqueId}"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                  class="block p-2.5 w-input overflow-y-auto text-sm text-gray-900 bg-secondary rounded-b-lg border border-gray-300 focus:ring-primary focus:border-primary"
                   style="min-height: 50px"
                 ></div>
                 <div id="job-description-Error" class="text-error hidden"></div>
@@ -659,11 +684,11 @@ AddNewEducation.addEventListener("click", (e) => {
                 <label
                   for="message"
                   class="block mb-2 text-sm font-medium text-gray-900"
-                  >Description</label
+                  >Description</label 
                 >
                 <div
                   id="${uniqueId}"
-                  class="block p-2.5 w-full text-sm text-gray-900 bg-secondary rounded-lg border border-gray-300 focus:ring-primary focus:border-primary"
+                  class="blockp-2.5 w-input overflow-y-auto text-sm text-gray-900 bg-secondary rounded-b-lg border border-gray-300 focus:ring-primary focus:border-primary"
                   style="min-height: 50px"
                 ></div>
                 <div
@@ -821,10 +846,13 @@ function storeWorkExperience() {
 
   const displayWorkexp = document.querySelector("#displayExperiences");
   const displayWorkexp1 = document.querySelector("#displayExperiences1");
+  const displayWorkexp2= document.querySelector("#displayExperiences2")
   if (displayWorkexp) displayWorkexp.innerHTML = "";
   if (displayWorkexp1) displayWorkexp1.innerHTML = "";
+  if (displayWorkexp2) displayWorkexp2.innerHTML="";
 
   userData.Work.forEach((work) => {
+    const endDate = work.currentlyWork ? "Present" : `${work.jobMonthTo} ${work.jobYearTo}`;
     if (displayWorkexp) {
       const experienceInfoHtml = `
         <div>
@@ -833,8 +861,7 @@ function storeWorkExperience() {
             <span>${work.companyName}</span>,  
             <span>${work.jobMonthFrom}</span>  
             <span>${work.jobYearFrom}</span> - 
-            <span>${work.jobMonthTo}</span> 
-            <span>${work.jobYearTo}</span>
+            <span>${endDate}</span>
           </div>
           <div>
             ${work.workDescription}
@@ -847,11 +874,26 @@ function storeWorkExperience() {
     if (displayWorkexp1) {
       const experienceInfoHtml1 = `
         <span class="text-xl font-serif">${work.jobTitle}</span>
-        <span class="font-serif text-nu-gray-100 text-md">${work.companyName}, ${work.jobMonthFrom} ${work.jobYearFrom} - ${work.jobMonthTo} ${work.jobYearTo}</span>
+        <span class="font-serif text-nu-gray-100 text-md">${work.companyName}, ${work.jobMonthFrom} ${work.jobYearFrom} - ${endDate}</span>
         <p class="leading-5 mt-2">
           ${work.workDescription}
         </p>`;
       displayWorkexp1.innerHTML += experienceInfoHtml1;
+    }
+    if (displayWorkexp2){
+      const experienceInfoHtml1= `
+      <div class="flex mb-2">
+        <div class="flex flex-col w-full mr-2">
+          <span>${work.jobTitle}</span>
+          <span class="font-semibold">${work.companyName}</span>
+          <span class="text-nu-gray-100"> ${work.jobMonthFrom} ${work.jobYearFrom} - ${endDate}</span>
+        </div>
+        <p class="text-sm leading-6 ml-6">
+        ${work.workDescription}
+        </p>
+      </div>
+      `
+      displayWorkexp2.innerHTML += experienceInfoHtml1;
     }
   });
 }
@@ -893,6 +935,8 @@ function storeEducation() {
 
     const educationresume1=document.querySelector("#displayEducationInfo");
     const educationresume2=document.querySelector("#displayEducationInfo2");
+    const educationresume3=document.querySelector("#displayEducationInfo3");
+    const endDate = study.currentlyStudy ? "Present" : `${study.educationMonthTo} ${study.educationYearTo}`;
 if (educationresume1){
     const educationInfoHtml = `
       <div id="displayEducationInfo">
@@ -901,8 +945,7 @@ if (educationresume1){
           <span id="institutName">${institutName}</span>,  
           <span id="educationmonthfrom">${educationMonthFrom}</span>  
           <span id="educationyearfrom">${educationYearFrom}</span> - 
-          <span id="educationmonthto">${educationMonthTo}</span> 
-          <span id="educationsyearto">${educationYearTo}</span>
+          <span >${endDate}</span> 
         </div>
         <div id="diaplayeducationdesc">
           ${studyDescription}
@@ -915,13 +958,29 @@ if (educationresume1){
     if(educationresume2){
       const educationInfoHtml1 = `
       <span class="text-xl font-serif">${degree} en ${field}</span>
-      <span class="font-serif text-nu-gray-100 text-md">${institutName}, ${educationMonthFrom} ${educationYearFrom} - ${educationMonthTo} ${educationYearTo}</span>
+      <span class="font-serif text-nu-gray-100 text-md">${institutName}, ${educationMonthFrom} ${educationYearFrom} - ${endDate}</span>
       <p class="leading-5 mt-2">
         ${studyDescription}
       </p> `;
     educationresume2.innerHTML +=
       educationInfoHtml1;
     }
+    if(educationresume3){
+      const educationInfoHtml=`
+      <div class="flex mb-2">
+        <div class="flex flex-col w-full mr-2">
+          <span>${degree} en ${field}</span>
+          <span class="font-semibold">${institutName}</span>
+          <span class="text-nu-gray-100"> ${educationMonthFrom} ${educationYearFrom} - ${endDate}</span>
+        </div>
+        <p class="text-sm leading-6 ml-6">
+        ${studyDescription}
+        </p>
+      </div>`
+      educationresume3.innerHTML +=
+    educationInfoHtml;
+    }
+    
   });
 }
 
@@ -1099,7 +1158,26 @@ DownloadsecondResume.addEventListener("click", async function () {
     console.error("false:", error.message);
   }
 });
+// 3rd
+const DownloadthirdResume = document.getElementById("DownloadResume3");
+const thirdResume = document.getElementById("thirdResume");
+DownloadthirdResume.addEventListener("click", async function () {
+  const fromattedFullName= personalInfo.fullName.replace(/\s+/g,'_')
+  const filename = `${fromattedFullName}_Resume`;
 
+  const options = {
+    margin: 0,
+    filename: filename,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+  };
+  try {
+    await html2pdf().set(options).from(thirdResume).save();
+  } catch (error) {
+    console.error("false:", error.message);
+  }
+});
 // to display the first resume
 const displayCv1 = document.getElementById("displayCv1");
 const resume1 = document.getElementById("resume1");
@@ -1117,7 +1195,15 @@ display2ndResume.addEventListener("click" , (e)=>{
   resume2.classList.remove("hidden")
 
 })
+// display resume 3
+const display3rdResume = document.getElementById("DisplayCv3");
+const resume3= document.getElementById("resume3")
+display3rdResume.addEventListener("click" , (e)=>{
+  e.preventDefault();
+  navigateToDownload.classList.add("hidden");
+  resume3.classList.remove("hidden")
 
+})
 // back to models
 const backButtons = document.querySelectorAll(".back-to-modales");
 
@@ -1126,6 +1212,7 @@ backButtons.forEach((Buttoon) => {
     e.preventDefault();
     resume1.classList.add("hidden");
     resume2.classList.add("hidden");
+    resume3.classList.add("hidden");
     navigateToDownload.classList.remove("hidden");
   });
 });

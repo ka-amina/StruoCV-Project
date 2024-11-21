@@ -838,6 +838,10 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mb-36 {
+  margin-bottom: 9rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -856,6 +860,10 @@ video {
 
 .mb-9 {
   margin-bottom: 2.25rem;
+}
+
+.mb-96 {
+  margin-bottom: 24rem;
 }
 
 .ml-12 {
@@ -930,6 +938,10 @@ video {
   margin-right: 3.5rem;
 }
 
+.mr-16 {
+  margin-right: 4rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -964,6 +976,10 @@ video {
 
 .mr-9 {
   margin-right: 2.25rem;
+}
+
+.mr-\[4\.75rem\] {
+  margin-right: 4.75rem;
 }
 
 .mr-auto {
@@ -1040,14 +1056,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-96 {
-  margin-bottom: 24rem;
-}
-
-.mb-36 {
-  margin-bottom: 9rem;
 }
 
 .block {
@@ -1156,6 +1164,22 @@ video {
 
 .max-h-full {
   max-height: 100%;
+}
+
+.max-h-16 {
+  max-height: 4rem;
+}
+
+.max-h-32 {
+  max-height: 8rem;
+}
+
+.max-h-24 {
+  max-height: 6rem;
+}
+
+.max-h-28 {
+  max-height: 7rem;
 }
 
 .min-h-full {
@@ -1288,6 +1312,14 @@ video {
 
 .w-96 {
   width: 24rem;
+}
+
+.w-\[17rem\] {
+  width: 17rem;
+}
+
+.w-\[24\.25rem\] {
+  width: 24.25rem;
 }
 
 .w-auto {
@@ -1618,6 +1650,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .text-wrap {
@@ -2213,6 +2249,18 @@ video {
   line-height: 1.25rem;
 }
 
+.leading-6 {
+  line-height: 1.5rem;
+}
+
+.leading-7 {
+  line-height: 1.75rem;
+}
+
+.leading-9 {
+  line-height: 2.25rem;
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -2256,6 +2304,11 @@ video {
 .text-indigo-500 {
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity));
+}
+
+.text-nu-blue-200 {
+  --tw-text-opacity: 1;
+  color: rgb(28 142 181 / var(--tw-text-opacity));
 }
 
 .text-nu-blue-500 {
@@ -2361,7 +2414,7 @@ video {
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-#firstResume,#secondResume {
+#firstResume,#secondResume ,#thirdResume{
   width: 794px;
   margin: 0 auto;
 }
@@ -2400,16 +2453,6 @@ ul,ol{
   page-break-inside: avoid;
   /* Avoid splitting paragraphs across pages */
   margin-bottom: 10px;
-}
-
-#secondResume h1, #secondResume h2, .section {
-  page-break-before: always;
-  /* Ensure these elements start on a new page */
-  margin-top: 20px;
-}
-
-#secondResume table, .content-block {
-  page-break-after: always;
 }
 
 .checked\:border-nu-gray-100:checked {

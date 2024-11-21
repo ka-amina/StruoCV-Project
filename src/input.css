@@ -6,7 +6,7 @@
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
-#firstResume,#secondResume {
+#firstResume,#secondResume ,#thirdResume{
   width: 794px;
   margin: 0 auto;
 }
@@ -38,11 +38,4 @@ ul,ol{
 #secondResume p {
   page-break-inside: avoid; /* Avoid splitting paragraphs across pages */
   margin-bottom: 10px;
-}
-#secondResume h1, #secondResume h2, .section {
-  page-break-before: always;  /* Ensure these elements start on a new page */
-  margin-top: 20px;
-}
-#secondResume table, .content-block {
-  page-break-after: always;
 }
